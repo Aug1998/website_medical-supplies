@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import { elements } from '../theme'
-import TicketIcon from '../assets/TicketIcon'
 import { useIntobs } from '../useIntobs'
 
 export default function Card(props) {
@@ -16,9 +15,6 @@ export default function Card(props) {
   return (
     <CardContainer className={isIntersecting && isMobile ? 'hover-container' : ''} ref={ref} animationType={props.animationType}>
       <CardContent >
-        <div>
-          <TicketIcon color={props.iconColor} />
-        </div>
         <CardTitle>
           {props.title}
         </CardTitle>

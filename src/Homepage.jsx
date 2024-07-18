@@ -1,17 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import styled from '@emotion/styled'
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FloatingImages from "./sections/FloatingImages";
 import FloatingImagesGPT from "./sections/FloatingImagesGPT";
 import Services from "./sections/Services";
-import OurNumbers from "./sections/OurNumbers";
 import Hero from "./sections/Hero";
 import Button from './components/Button';
 import { elements } from './theme'
 import { scrollToElementById } from './utils';
-import { css, keyframes } from '@emotion/react';
+import { css } from '@emotion/react';
 
 export default function Homepage() {
   const isMobile = window.innerWidth <= 800
@@ -42,7 +41,6 @@ export default function Homepage() {
       ) : (
           <FloatingImages />
         )}
-        <OurNumbers />
       </PageContent>
       <Footer></Footer>
     </>

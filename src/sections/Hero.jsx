@@ -1,22 +1,18 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import HeroIllustration from "../assets/HeroIllustration";
 import { colors, elements, spaces } from '../theme'
-import AnimatedBackground from '../components/AnimatedBackground';
 
 
 export default function Hero() {
   return (
     <>
       <Container>
-        <AnimatedBackground />
         <MainTitle>
            Gestiona <br/>facilmente <br/>tus eventos <br/>y llevalos al <br/><span>proximo <br/>nivel.</span></MainTitle>
         <HeroText>
           WQRLD Pass te brinda las herramientas para que potencies tus <br/>
           eventos y conozcas a tu audiencia.
         </HeroText>
-        <HeroIllustration />
       </Container>
     </>
   )
