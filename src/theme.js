@@ -1,5 +1,5 @@
 export const colors = {
-  black: "#0f132a",
+  black: "#26262C",
   white: "#FFFFFF",
   gray: "#F3F3F3",
   grayBackground: "#",
@@ -22,9 +22,11 @@ export const elements = {
 
   heroBackround: colors.primary,
 
-  footerBackground: colors.primary,
-  footerFont: colors.accent,
-  footerIcon: colors.accent,
+  footerTopBackground: colors.black,
+  footerBottomBackground: colors.secondary,
+  footerTitleFont: colors.accent,
+  footerFont: colors.white,
+  footerIcon: colors.white,
 
   AboutUsBackground: colors.primary,
   AboutUsText: colors.gray1,
@@ -47,5 +49,5 @@ export const elements = {
 }
 
 export const spaces = {
-  horizontalPadding: "13vw",
+  horizontalPadding: "16vw",
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { colors, elements, spaces } from '../theme'
-import Button from '../components/ContactButton'
+import Button from '../components/Button'
 
 export default function Hero() {
   return (
@@ -56,7 +56,7 @@ const Container = styled.div`
   background-position-y: 69%;
   background-blend-mode: luminosity;
   gap: 70px;
-  padding: 80px ${spaces.horizontalPadding} 0;
+  padding: 70px ${spaces.horizontalPadding} 0;
   @media only screen and (max-width: 800px) {
     padding: 80px 10px;
     svg {
@@ -74,7 +74,7 @@ const MainTitle = styled.h1`
   font-size: 40px;
   line-height: 48px;
   letter-spacing: 1.2px;
-  margin: 40px 0 90px;
+  margin: 38px 0 80px;
   span {
     font-family: "StretchPro", "Nunito", sans-serif;
     background-color: ${colors.secondary};
