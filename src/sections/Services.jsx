@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import Card from "../components/Card";
 import Title from "../components/Title";

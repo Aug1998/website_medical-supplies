@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import styled from '@emotion/styled'
 import { colors, elements, spaces } from '../theme'
-import Button from "../components/Button";
+import Button from "./ContactButton";
 import { scrollToElementById } from '../utils';
 
 const Header = (props) => {
@@ -26,13 +26,8 @@ const Header = (props) => {
           <a onClick={(e) => {e.preventDefault(); scrollToElementById("sobre-nosotros")}} href="#">
             Sobre Nosotros
           </a>
-          <a onClick={(e) => {e.preventDefault(); scrollToElementById("precios")}} href="#">
-            Precios
-          </a>
-        </Nav>
-        {!isMobile && (
           <Button onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>Get started</Button>
-        )}
+        </Nav>
       </HeaderInner>
     </>
 
@@ -44,30 +39,33 @@ export default Header
 
 const HeaderInner = styled.div`
   width: 100vw;
-  height: 110px;
+  height: 90px;
   display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
   align-items: center;
   justify-content: space-between;
   padding: 0 ${spaces.horizontalPadding};
-  background-color: white;
   z-index: 99;
   background-color: ${elements.headerBackground};
+  backdrop-filter: blur(4px);
   @media only screen and (max-width: 800px) {
     padding: 0 6vw;
   }
 `
 
 const Nav = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 40px;
   a {
-    font-size: 15px;
+    font-size: 14px;
     letter-spacing: 1px;
     font-weight: 500;
-    text-transform: capitalize;
+    text-transform: uppercase;
     text-decoration: none;
     color: ${elements.headerFont};
-    &:not(:last-child) {
-      margin-right: 32px;
-    }
     &:hover {
       text-decoration: underline;
     }
@@ -78,7 +76,8 @@ const Nav = styled.div`
 `
 
 const Logo = styled.img`
-  height: 54px;
+  height: 43px;
+  filter: grayscale(1) brightness(100);
 `
 
 const MobileNavButton = styled.button`

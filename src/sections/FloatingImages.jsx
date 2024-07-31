@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import styled from '@emotion/styled'
-import Button from "../components/Button";
 import { colors, spaces } from '../theme'
 
 
@@ -37,7 +36,6 @@ export default function FloatingImages() {
           <HeroText>
             Tu evento es único, por lo que ajustamos nuestro <br/>presupuesto a tus necesidades.
           </HeroText>
-          <Button onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>COMENZÁ TU PRUEBA GRATUITA</Button>
         </Content>
       </Container>
     </>

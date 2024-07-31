@@ -12,14 +12,14 @@ export default function Button({ children, onClick }) {
 
 const StyledButton = styled.button`
   all: unset; 
-  background-color: ${elements.AboutUsCTABackground};
-  color: ${elements.AboutUsCTAText};
-  border-radius: 3px;
+  background-color: transparent;
+  color: white;
+  border: white 2px solid;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   display: flex;
   align-items: center;
-  padding: 16px 18px;
+  padding: 12px 17px;
   text-transform: uppercase;
   transition: all 0.2s;
   cursor: pointer;

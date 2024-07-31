@@ -7,7 +7,7 @@ import FloatingImages from "./sections/FloatingImages";
 import FloatingImagesGPT from "./sections/FloatingImagesGPT";
 import Services from "./sections/Services";
 import Hero from "./sections/Hero";
-import Button from './components/Button';
+import ContactButton from './components/ContactButton';
 import { elements } from './theme'
 import { scrollToElementById } from './utils';
 import { css } from '@emotion/react';
@@ -18,7 +18,7 @@ export default function Homepage() {
 
   return (
     <>
-      <Header handleHamburgerButton={() => setMobileNavIsOpen(true)} isMobile={isMobile}/>
+      <Header handleHamburgerContactButton={() => setMobileNavIsOpen(true)} isMobile={isMobile}/>
       {isMobile && (
         <MobileNav isOpen={mobileNavIsOpen} onClick={() => setMobileNavIsOpen(false)}>
           <a onClick={(e) => {e.preventDefault(); scrollToElementById("caracteristicas")}} href="#">
@@ -30,7 +30,7 @@ export default function Homepage() {
           <a onClick={(e) => {e.preventDefault(); scrollToElementById("precios")}} href="#">
             Precios
           </a>
-          <Button onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>Get started</Button>
+          <ContactButton onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>Get started</ContactButton>
         </MobileNav>
       )}
       <PageContent>
@@ -69,7 +69,7 @@ const MobileNav = styled.div`
   transition: all 0.3s;
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(20px);
-  button {
+  Contactbutton {
     margin-top: 28px;
   }
   a {

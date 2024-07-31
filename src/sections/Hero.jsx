@@ -1,33 +1,62 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { colors, elements, spaces } from '../theme'
-
+import Button from '../components/ContactButton'
 
 export default function Hero() {
   return (
     <>
       <Container>
-        <MainTitle>
-           Gestiona <br/>facilmente <br/>tus eventos <br/>y llevalos al <br/><span>proximo <br/>nivel.</span></MainTitle>
-        <HeroText>
-          WQRLD Pass te brinda las herramientas para que potencies tus <br/>
-          eventos y conozcas a tu audiencia.
-        </HeroText>
+        <Overlay />
+        <HeroContent>
+          <img src="./img/permedica.png" alt="" />
+          <MainTitle>
+            _Conocé la calidad y excelencia <br/>
+            de nuestros insumos médicos. 
+          </MainTitle>
+          <Button>Conocenos</Button>
+        </HeroContent>
       </Container>
     </>
   )
 }
 
+
+const Overlay = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-color: rgba(76, 88, 97, 0.45);
+`
+
+const HeroContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  img {
+    width: 122px;
+    filter: grayscale(1) brightness(100);
+  }
+`
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   position: relative;
   width: 100%;
-  background-color: ${elements.heroBackround};
+  height: 100vh;
+  background-color:  rgba(76, 88, 97, 0.7);
+  background-image: url(./img/hero-bg.jpeg);
+  background-size: cover;
+  background-position-y: 69%;
+  background-blend-mode: luminosity;
   gap: 70px;
-  padding: 70px ${spaces.horizontalPadding};
+  padding: 80px ${spaces.horizontalPadding} 0;
   @media only screen and (max-width: 800px) {
     padding: 80px 10px;
     svg {
@@ -38,18 +67,14 @@ const Container = styled.div`
 `
 
 const MainTitle = styled.h1`
-  font-family: "StretchPro", "Nunito", sans-serif;
+  font-family: "Poppins", "Nunito", sans-serif;
   color: ${elements.HeroTitle};
-  text-transform: uppercase;
-  text-align: center;
-  max-width: 24ch;
-  font-weight: 400;
+  text-align: left;
+  font-weight: 600;
   font-size: 40px;
   line-height: 48px;
   letter-spacing: 1.2px;
-  br {
-    display: none;
-  }
+  margin: 40px 0 90px;
   span {
     font-family: "StretchPro", "Nunito", sans-serif;
     background-color: ${colors.secondary};
@@ -61,16 +86,5 @@ const MainTitle = styled.h1`
     br {
       display: block;
     }
-  }
-`
-
-const HeroText = styled.p`
-  color: ${elements.HeroText};
-  opacity: 70%;
-  font-size: 20px;
-  text-align: center;
-  line-height: 28px;
-  @media only screen and (max-width: 800px) {
-    display: none;
   }
 `

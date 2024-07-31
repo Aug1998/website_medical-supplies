@@ -3,14 +3,14 @@ export const colors = {
   white: "#FFFFFF",
   gray: "#F3F3F3",
   grayBackground: "#",
-  primary: "#191e39",
+  primary: "#055855",
   primaryLight: "#1E285F",
-  secondary: "#e72f76",
-  accent: "#fe9513",
+  secondary: "#01605D",
+  accent: "#00E676",
 }
 
 export const elements = {
-  headerBackground: colors.primary,
+  headerBackground: "#2b343b59",
   headerFont: colors.white,
 
   title: colors.black,
@@ -28,7 +28,7 @@ export const elements = {
 
   AboutUsBackground: colors.primary,
   AboutUsText: colors.gray1,
-  AboutUsCTABackground: colors.secondary,
+  AboutUsCTABackground: "transparent",
   AboutUsCTAText: colors.white,
   AboutUsCTATitleFont: colors.white,
   AboutUsCTASubtitleFont: colors.gray1,
