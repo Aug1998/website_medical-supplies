@@ -1,61 +1,58 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import Card from "../components/Card";
-import Title from "../components/Title";
-import { colors, elements, spaces } from '../theme'
+import { elements, spaces, colors } from '../theme'
 
 export default function Services() {
   return (
-    <>
-      <Container id="caracteristicas">
-        <Title color={elements.TitleFont}>En <span>wqrld</span> podés <br/>encontrar:</Title>
-        <CardsContainer>
-          <Card 
-            title="Flexibilidad para vender entradas" 
-            text={"Elegí si querés vender tus entradas mediante efectivo o Ecommerce."}
-            iconColor={colors.secondary}
-            animationType={"top"}
-          />
-          <Card 
-            title="Soporte 24/7" 
-            text={"Estamos disponibles para cuando nos necesites"}
-            iconColor={colors.accent}
-            animationType={"top"}
-          />
-          <Card 
-            title="Seguimiento de ventas" 
-            text={"Llevá un registro de tus ventas y las de tu equipo en tiempo real."}
-            iconColor={colors.secondary}
-            animationType={"top"}
-          />
-          <Card 
-            title="Conoce a tu audiencia" 
-            text={"Accedé a información demográfica de los asistentes de tu evento"}
-            iconColor={colors.accent}
-            animationType={"bottom"}
-          />
-          <Card 
-            title="Sin descargas" 
-            text={"Accedé desde cualquier dispositivo."}
-            iconColor={colors.secondary}
-            animationType={"bottom"}
-          />
-          <Card 
-            title="Email marketing y publicidad en redes" 
-            text={"Crecé con nosotros y expandí tu llegada."}
-            iconColor={colors.accent}
-            animationType={"bottom"}
-          />
-        </CardsContainer>
-      </Container>
-    </>
+    <Container id="caracteristicas">
+      <Title>
+        <h3>/ Qué hacemos</h3>
+      </Title>
+      <ServicesContainer>
+        <ServicesItem>
+          <label>01/</label>
+          <h4>_gestión y logística</h4>
+          <div>
+            <p>
+              Ser eficientes. Nuestras logística se encuentra en un <br/>
+              proceso de mejora continua que nos permite llegar más <br/>
+              lejos con menores costos.
+            </p>
+            <a href="">MEJOR LOGÍSTICA</a>
+          </div>
+        </ServicesItem>
+        <ServicesItem>
+          <label>02/</label>
+          <h4>_atención al cliente</h4>
+          <div>
+            <p>
+                No perdemos el foco. El contacto constante y directo con <br/>
+                usuarios y clientes es nuestro norte. 
+              </p>
+            <a href="">CONTACTO</a>
+          </div>
+        </ServicesItem>
+        <ServicesItem>
+          <label>03/</label>
+          <h4>_partners</h4>
+          <div>
+            <p>
+              Luego de años en logística y salud hemos desarrollado <br/>
+              una importante red de socios estratégicos globales que nos <br/>
+              permiten cumplir los estándares más altos de calidad.
+            </p>
+            <a href="">RED DE SOCIOS</a>
+          </div>
+        </ServicesItem>
+      </ServicesContainer>
+    </Container>
   )
 }
 
 const Container = styled.div`
   width: 100%;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   padding: 100px ${spaces.horizontalPadding} 100px;
@@ -63,17 +60,75 @@ const Container = styled.div`
   @media only screen and (max-width: 800px) {
     padding: 100px 12px 100px;
   }
-  `
+`
 
-const CardsContainer = styled.div`
+const Title = styled.div`
+  width: 22%;
+  height: 100%;
+  h3 {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+`
+
+const ServicesContainer = styled.ul`
+  width: 78%;
+  height: 100%;
+  border-top: 1px solid ${colors.accent}55;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding: 36px 0;
+`
+
+const ServicesItem = styled.li`
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2.8vw;
-  margin-top: 80px;
-  @media only screen and (max-width: 800px) {
-    padding: 0 28px;
-    grid-template-columns: 1fr;
-    gap: 8vh;
+  height: auto;
+  border-bottom: 0.4px solid ${colors.accent}55;
+  list-style: none;
+  padding: 0 16px 36px 6px;
+  display: flex;
+  gap: 100px;
+  label {
+    font-weight: 600;
+    font-size: 15px;
+    color: ${colors.accent};
+    letter-spacing: 1.5px;
+  }
+  h4 {
+    font-weight: 500;
+    font-size: 28px;
+    color: white;
+    line-height: 33px;
+    width: 160px;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      color: white;
+      line-height: 28px;
+      margin-bottom: 24px;
+    }
+    a {
+      font-weight: 400;
+      font-size: 13px;
+      color: white;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline;
+      transition: all 0.2s;
+      &:hover {
+        color: ${colors.accent};
+        text-decoration: underline;
+      }
+    }
   }
 `

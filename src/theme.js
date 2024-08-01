@@ -3,9 +3,9 @@ export const colors = {
   white: "#FFFFFF",
   gray: "#F3F3F3",
   grayBackground: "#",
-  primary: "#055855",
+  primary: "#01605D",
   primaryLight: "#1E285F",
-  secondary: "#01605D",
+  secondary: "#2B343B",
   accent: "#00E676",
 }
 
@@ -23,7 +23,7 @@ export const elements = {
   heroBackround: colors.primary,
 
   footerTopBackground: colors.black,
-  footerBottomBackground: colors.secondary,
+  footerBottomBackground: colors.primary,
   footerTitleFont: colors.accent,
   footerFont: colors.white,
   footerIcon: colors.white,
@@ -35,7 +35,7 @@ export const elements = {
   AboutUsCTATitleFont: colors.white,
   AboutUsCTASubtitleFont: colors.gray1,
 
-  ServicesBackground: colors.white,
+  ServicesBackground: colors.secondary,
   ServicesText: colors.gray1,
 
   HeroTitle: colors.white,
@@ -49,5 +49,5 @@ export const elements = {
 }
 
 export const spaces = {
-  horizontalPadding: "16vw",
+  horizontalPadding: "15vw",
 }
