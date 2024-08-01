@@ -1,13 +1,7 @@
 import { css } from '@emotion/react'
 
 export const GlobalCss = css`
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@100;300;400;500;600;700');
-
-  @font-face {
-    font-family: "StretchPro";
-    src: url("./font/StretchPro.ttf"),
-    url('./font/StretchPro.otf');
-  }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
   #root{
     width: 100dvw;
@@ -21,7 +15,7 @@ export const GlobalCss = css`
     justify-content: center;
   }
   * {
-    font-family: 'Nunito', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     box-sizing: border-box;
     z-index: 10;

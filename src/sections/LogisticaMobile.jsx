@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import styled from '@emotion/styled'
 import { colors, spaces } from '../theme'
 
-export default function FloatingImages() {
+export default function LogisticaMobile() {
   const containerRef = useRef(null)
   const [scrollY, setScrollY] = useState(0)
   const [floatingImages, setFloatingImages] = useState([])

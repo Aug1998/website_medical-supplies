@@ -3,8 +3,8 @@ import { useState } from 'react'
 import styled from '@emotion/styled'
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import FloatingImages from "./sections/FloatingImages";
-import FloatingImagesGPT from "./sections/FloatingImagesGPT";
+import Logistica from "./sections/Logistica";
+import LogisticaMobile from "./sections/LogisticaMobile";
 import Services from "./sections/Services";
 import Hero from "./sections/Hero";
 import ContactButton from './components/ContactButton';
@@ -37,9 +37,9 @@ export default function Homepage() {
         <Hero />
         <Services />
         {isMobile ? (
-          <FloatingImagesGPT />
+          <LogisticaMobile />
       ) : (
-          <FloatingImages />
+          <Logistica />
         )}
       </PageContent>
       <Footer></Footer>
