@@ -11,6 +11,7 @@ import ContactButton from './components/ContactButton';
 import { elements } from './theme'
 import { scrollToElementById } from './utils';
 import { css } from '@emotion/react';
+import Contact from './sections/Contact';
 
 export default function Homepage() {
   const isMobile = window.innerWidth <= 800
@@ -41,6 +42,7 @@ export default function Homepage() {
       ) : (
           <Logistica />
         )}
+      <Contact />
       </PageContent>
       <Footer></Footer>
     </>

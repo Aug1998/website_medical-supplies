@@ -1,14 +1,15 @@
 import { useState, useRef } from 'react';
 import styled from '@emotion/styled'
-import { colors } from '../theme'
+import { colors, elements } from '../theme'
 import emailjs from '@emailjs/browser';
+import Button from './Button';
 
 export default function ContactForm() {
   const formRef = useRef(null);
 
   const [userInput, setUserInput] = useState({ 
     name : "",
-    lastName : "",
+    form_number : "",
     email : "",
     number : "",
     message : "",
@@ -78,11 +79,13 @@ export default function ContactForm() {
 
   return (
     <FormContainer>
-      <h3>Formulario de contacto</h3>
+      <h3>/ Contacto</h3>
       <Form id="contact-form" autoComplete="off" ref={formRef}>
         {/* Nombre */}
-        <FormItem className="form_name" >
-          <label htmlFor="form_name">Nombre*</label>
+        <FormItem className="form_name" gridArea="name">
+          <div>
+            <label htmlFor="form_name">Nombre</label>
+          </div>
           <input 
           id="form_name" 
           type="text" 
@@ -94,23 +97,41 @@ export default function ContactForm() {
           />
         </FormItem>
 
-        {/* Apellido */}
-        <FormItem className="form_lastName" >
-          <label htmlFor="form_lastName">Apellido</label>
+        {/* Email */}
+        <FormItem className="form_email" gridArea="email">
+          <div>
+            <label htmlFor="form_email">Email</label>
+          </div>
           <input 
-          id="form_lastName" 
-          type="text" 
-          name="form_lastName" 
-          pattern="[A-Za-z0-9]+" 
-          maxLength="20"
-          value={userInput.form_lastName}
-          onChange={(e) => handleChange(e)}
+            id="form_email" 
+            type="email" 
+            name="form_email"
+            value={userInput.form_email}
+            onChange={(e) => handleChange(e)}
           />
         </FormItem>
 
+        {/* Numero */}
+        <FormItem className="form_number" gridArea="number">
+          <div>
+            <label htmlFor="form_number">Teléfono</label>
+          </div>
+          <input 
+          id="form_number" 
+          type="text" 
+          name="form_number" 
+          pattern="[A-Za-z0-9]+" 
+          maxLength="20"
+          value={userInput.form_number}
+          onChange={(e) => handleChange(e)}
+          />
+        </FormItem>
+    
         {/* Empresa */}
-        <FormItem className="form_company" >
-          <label htmlFor="form_company">Empresa</label>
+        <FormItem className="form_company" gridArea="company">
+          <div>
+            <label htmlFor="form_company">Empresa</label>
+          </div>
           <input 
           id="form_company" 
           type="text" 
@@ -121,24 +142,12 @@ export default function ContactForm() {
           onChange={(e) => handleChange(e)}
           />
         </FormItem>
-      
 
-
-        {/* Email */}
-        <FormItem className="form_email">
-          <label htmlFor="form_email">Email*</label>
-          <input 
-            id="form_email" 
-            type="email" 
-            name="form_email"
-            value={userInput.form_email}
-            onChange={(e) => handleChange(e)}
-          />
-        </FormItem>
-    
         {/* Mensaje */}
-        <FormItem className="message" fullWidth>
-          <label htmlFor="message">Mensaje</label>
+        <FormMessage className="message" fullWidth gridArea="message">
+          <div>
+            <label htmlFor="message">Mensaje</label>
+          </div>
           <textarea 
             style={{ resize: "none", height: "100px" }}
             maxLength="800"
@@ -146,13 +155,13 @@ export default function ContactForm() {
             value={userInput.message}
             onChange={(e) => handleChange(e)}
           ></textarea>
-        </FormItem>
+        </FormMessage>
         
         {/* Captcha */}
         <CaptchaContainer className="g-recaptcha" data-sitekey="6Lf8gyUnAAAAADA60Ofp-_RsQkSGUpZ8DcJquyk6" />
 
         {/* Dummy Submit */}
-        <SubmitButton type="button" className="dummy_submit" onClick={() => handleSubmit()}>Enviar</SubmitButton>
+        <Button type="dark" className="dummy_submit" onClick={() => handleSubmit()}>Enviar</Button>
       </Form>
     </FormContainer>
   )
@@ -167,17 +176,22 @@ const CaptchaContainer = styled.div`
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 46px 50px;
+  padding: 90px 90px 70px;
   background-color: white;
-  width: fit-content;
+  width: 100%;
+  height: 100%;
+  border-top: solid 3.5px ${colors.primaryLight};
+  border-bottom: solid 3.5px ${colors.primaryLight};
   h3 {
     color: ${colors.primary};
     text-transform: uppercase;
-    font-size: 26px;
-    letter-spacing: 2px;
-    margin-bottom: 18px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 40px;
+    font-family: 'Open Sans', sans-serif;
     text-align: center;
   }
   @media only screen and (max-width: 800px) {
@@ -186,11 +200,19 @@ export const FormContainer = styled.div`
 `
 
 export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  width: 460px;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 7fr 6fr 1fr;
+  grid-template-rows: auto auto auto auto auto;
+  grid-template-areas: 
+  "name message message"
+  "email message message"
+  "number message message"
+  "company message message"
+  ". . button"
+  ;
+  width: 100%;
+  height: 100%;
+  gap: 30px 70px;
   @media only screen and (max-width: 800px) {
     width: 100%;
     display: grid;
@@ -202,21 +224,41 @@ export const FormItem = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  label {
-    margin-left: 6px;
-    font-size: 14px;
+  grid-area: ${props => props.gridArea};
+  position: relative;
+  div {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 1px;
+    left: 0px;
+    width: 80px;
+    height: 100%;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 20%;
+      left: 84px;
+      height: 64%;
+      width: 1px;
+      background-color: ${colors.gray};
+    }
+    label {
+      font-size: 14px;
+      color: ${colors.gray}
+    }
   }
-  input, textarea{
+  input{
     height: 40px;
     margin-top: 2px;
     font-size: 14px;
     border: none;
     outline: none;
-    background-color: ${colors.gray2};
-    border: 1px solid ${colors.gray1};
-    padding: 0 6px;
-    color: #f5f5f5;
-    border-radius: 4px;
+    background-color: transparent;
+    border-bottom: 1px solid ${colors.gray};
+    padding: 0 6px 0 100px;
+    color: ${colors.black};
   }
   @media only screen and (min-width: 801px) {
     grid-column: ${props => props.fullWidth? "span 2" : ""};
@@ -224,20 +266,40 @@ export const FormItem = styled.div`
   }
 `
 
-export const SubmitButton = styled.button`
-  border: none;
-  background-color: ${colors.secondary};
-  color: black;
-  text-transform: uppercase;
+export const FormMessage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 100%;
-  height: 46px;
-  padding: 5px 0;
-  font-size: 16px;
-  margin-top: 18px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  &:hover{
-    cursor: pointer;
-    background-color: ${colors.secondary};
+  grid-area: ${props => props.gridArea};
+  position: relative;
+  div {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 1px;
+    left: -4px;
+    width: 80px;
+    height: 40px;
+    label {
+      font-size: 14px;
+      color: ${colors.gray}
+    }
+  }
+  textarea {
+    height: calc(100% - 40px)!important;
+    margin-top: 2px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px solid ${colors.gray};
+    padding: 0px 6px 8px;
+    color: ${colors.black};
+  }
+  @media only screen and (min-width: 801px) {
+    grid-column: ${props => props.fullWidth? "span 2" : ""};
+    width: ${props => props.fullWidth? "100%" : ""};
   }
 `

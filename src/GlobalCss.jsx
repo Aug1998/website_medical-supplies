@@ -1,7 +1,8 @@
 import { css } from '@emotion/react'
 
 export const GlobalCss = css`
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 
   #root{
     width: 100dvw;

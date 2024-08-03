@@ -1,10 +1,10 @@
 export const colors = {
   black: "#26262C",
   white: "#FFFFFF",
-  gray: "#F3F3F3",
+  gray: "#A8A8A8",
   grayBackground: "#",
   primary: "#01605D",
-  primaryLight: "#1E285F",
+  primaryLight: "#016D6A",
   secondary: "#2B343B",
   accent: "#00E676",
 }

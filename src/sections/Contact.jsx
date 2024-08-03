@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import ContactForm from "../components/ContactForm";
+import { spaces } from '../theme'
 
 export default function Contact() {
   return (
     <>
       <Content>
       <BlueOverlay />
-        <ContactForm>
-        </ContactForm>
+        <ContactForm />
       </Content>
     </>
   )
@@ -19,9 +19,9 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 90vh;
-  background-image: url(./img/contact.jpg);
+  background-image: url(./img/contact.png);
   background-size: cover;
+  padding: 100px ${spaces.horizontalPadding} 130px;
 `
 
 const BlueOverlay = styled.div`
