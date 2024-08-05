@@ -12,21 +12,12 @@ export default function Title({ children, color }) {
 }
 
 const TitleContainer = styled.h2`
-  color: ${props => props.color || elements.TitleFont};
-  font-family: "StretchPro", "Nunito", sans-serif;
-  font-size: 32px;
-  font-weight: 400;
+  color: ${props => props.color || elements.title};
   text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 40px;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
-  width: 100%;
-  span {
-    font-family: "StretchPro", "Nunito", sans-serif;
-    background-color: ${colors.secondary};
-    padding: 4px 12px;
-    color: white;
-  }
-  @media only screen and (max-width: 800px) {
-    font-size: 26px;
-    line-height: 42px;
-  }
 `

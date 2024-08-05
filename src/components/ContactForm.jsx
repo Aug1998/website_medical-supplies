@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import { colors, elements } from '../theme'
 import emailjs from '@emailjs/browser';
 import Button from './Button';
+import Title from './Title';
 
 export default function ContactForm() {
   const formRef = useRef(null);
@@ -79,7 +80,7 @@ export default function ContactForm() {
 
   return (
     <FormContainer>
-      <h3>/ Contacto</h3>
+      <Title color={colors.primaryLight}>/ Contacto</Title>
       <Form id="contact-form" autoComplete="off" ref={formRef}>
         {/* Nombre */}
         <FormItem className="form_name" gridArea="name">
@@ -184,16 +185,6 @@ export const FormContainer = styled.div`
   height: 100%;
   border-top: solid 3.5px ${colors.primaryLight};
   border-bottom: solid 3.5px ${colors.primaryLight};
-  h3 {
-    color: ${colors.primary};
-    text-transform: uppercase;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    margin-bottom: 40px;
-    font-family: 'Open Sans', sans-serif;
-    text-align: center;
-  }
   @media only screen and (max-width: 800px) {
     padding: 40px 10px;
   }
