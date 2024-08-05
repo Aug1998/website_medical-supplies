@@ -17,7 +17,6 @@ const TitleContainer = styled.h2`
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 1.5px;
-  margin-bottom: 40px;
   font-family: 'Open Sans', sans-serif;
   text-align: center;
 `

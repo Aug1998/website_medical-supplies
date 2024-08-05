@@ -191,6 +191,7 @@ export const FormContainer = styled.div`
 `
 
 export const Form = styled.form`
+  margin-top: 40px;
   display: grid;
   grid-template-columns: 7fr 6fr 1fr;
   grid-template-rows: auto auto auto auto auto;

@@ -21,6 +21,19 @@ export default function Products() {
           <ProductCard name={"Producto 4"} img={'./img/product-sample.png'}/>
         </ProductsContainer>
       </section>
+
+      <section>
+        <ProductsHelmet>
+          <h4>_disame</h4>
+          <Button type={"dark"}>Ver más</Button>
+        </ProductsHelmet>
+        <ProductsContainer>
+          <ProductCard name={"Producto 1"} img={'./img/product-sample.png'}/>
+          <ProductCard name={"Producto 2"} img={'./img/product-sample.png'}/>
+          <ProductCard name={"Producto 3"} img={'./img/product-sample.png'}/>
+          <ProductCard name={"Producto 4"} img={'./img/product-sample.png'}/>
+        </ProductsContainer>
+      </section>
     </Container>
   )
 }
@@ -33,11 +46,12 @@ const Container = styled.div`
   width: 100%;
   background-size: cover;
   padding: 100px ${spaces.horizontalPadding} 130px;
+  gap: 56px;
   section {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
   }
 `
 
