@@ -26,7 +26,7 @@ const Container = styled.div`
   width: 100%;
   max-width: 288px;
   cursor: pointer;
-  `
+`
 
 const CardImageContainer = styled.div`
   width: 100%;
@@ -45,7 +45,7 @@ const CardBody = styled.div`
   width: 100%;
   height: calc(((100vw - ${spaces.horizontalPadding} - ${spaces.horizontalPadding} - 72px) / 4) * 0.46875);
   background-color: ${colors.primaryLight};
-  padding: 14px 18px 18px;
+  padding: 14px 18px 16px;
   border-bottom: 4px solid ${colors.accent};
   display: flex;
   flex-direction: column;
@@ -54,16 +54,16 @@ const CardBody = styled.div`
   p {
     font-family: 'Poppins';
     color: white;
-    font-weight: 500;
-    font-size: 18px
+    font-weight: 400;
+    font-size: 16px
   }
   a {
     text-transform: uppercase;
     font-family: 'Open Sans';
     color: ${colors.accent};
     letter-spacing: 2px;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 500;
     display: flex;
     justify-content: space-between;
     align-items: center;

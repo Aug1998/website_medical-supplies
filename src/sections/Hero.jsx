@@ -43,6 +43,7 @@ const HeroContent = styled.div`
 `
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

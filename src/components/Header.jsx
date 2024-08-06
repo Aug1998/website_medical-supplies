@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import styled from '@emotion/styled'
 import { colors, elements, spaces } from '../theme'
-import Button from "./ContactButton";
 import { scrollToElementById } from '../utils';
 
 const Header = (props) => {
@@ -9,28 +8,29 @@ const Header = (props) => {
 
   return (
     <>
-    <>
-      <HeaderInner>
-        <Logo src='img/logo.png'/>
-        {isMobile && (
-          <MobileNavButton onClick={() => props.handleHamburgerButton()}>
-            <svg width="36px" height="36px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 6.00092H21M3 12.0009H21M3 18.0009H21" stroke={colors.secondary} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </MobileNavButton>
-        )}
-        <Nav>
-          <a onClick={(e) => {e.preventDefault(); scrollToElementById("caracteristicas")}} href="#">
-            Características
-          </a>
-          <a onClick={(e) => {e.preventDefault(); scrollToElementById("sobre-nosotros")}} href="#">
-            Sobre Nosotros
-          </a>
-          <Button onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>Get started</Button>
-        </Nav>
-      </HeaderInner>
-    </>
-
+      <>
+        <HeaderInner>
+          <Logo src='img/logo.png'/>
+          {isMobile && (
+            <MobileNavButton onClick={() => props.handleHamburgerButton()}>
+              <svg width="36px" height="36px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6.00092H21M3 12.0009H21M3 18.0009H21" stroke={colors.secondary} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </MobileNavButton>
+          )}
+          <Nav>
+            <a onClick={(e) => {e.preventDefault(); scrollToElementById("caracteristicas")}} href="#">
+              Qué hacemos
+            </a>
+            <a onClick={(e) => {e.preventDefault(); scrollToElementById("productos")}} href="#">
+              Productos
+            </a>
+            <ContactButton onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>
+              Contacto
+            </ContactButton>
+          </Nav>
+        </HeaderInner>
+      </>
     </>
   )
 }
@@ -50,6 +50,9 @@ const HeaderInner = styled.div`
   z-index: 99;
   background-color: ${elements.headerBackground};
   backdrop-filter: blur(4px);
+  * {
+    font-family: 'Open Sans'!important;
+  }
   @media only screen and (max-width: 800px) {
     padding: 0 6vw;
   }
@@ -58,16 +61,23 @@ const HeaderInner = styled.div`
 const Nav = styled.div`
   display: flex;
   align-items: center;
-  gap: 40px;
+  height: 100%;
   a {
-    font-size: 14px;
-    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 12px;
+    letter-spacing: 2px;
     font-weight: 500;
     text-transform: uppercase;
     text-decoration: none;
     color: ${elements.headerFont};
+    padding: 0 22px;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s;
     &:hover {
-      text-decoration: underline;
+      border-color: white;
     }
   }
   @media only screen and (max-width: 800px) {
@@ -84,4 +94,25 @@ const MobileNavButton = styled.button`
   background-color: transparent;
   border: none;
   outline: none;
+`
+
+const ContactButton = styled.button`
+  all: unset; 
+  background-color: transparent;
+  color: white;
+  border: white 2px solid;
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  padding: 10px 17px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin-left: 22px;
+  &:hover{
+    background-color: ${colors.accent};
+    border-color: ${colors.accent};
+  }
 `

@@ -7,7 +7,6 @@ import Logistica from "../sections/Logistica";
 import LogisticaMobile from "../sections/LogisticaMobile";
 import Services from "../sections/Services";
 import Hero from "../sections/Hero";
-import ContactButton from '../components/ContactButton';
 import { elements } from '../theme'
 import { scrollToElementById } from '../utils';
 import { css } from '@emotion/react';
@@ -32,7 +31,6 @@ export default function Homepage() {
           <a onClick={(e) => {e.preventDefault(); scrollToElementById("precios")}} href="#">
             Precios
           </a>
-          <ContactButton onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>Get started</ContactButton>
         </MobileNav>
       )}
       <PageContent>

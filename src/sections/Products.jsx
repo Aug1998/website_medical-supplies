@@ -7,7 +7,7 @@ import ProductCard from '../components/ProductCard'
 
 export default function Products() {
   return (
-    <Container>
+    <Container id="productos">
       <Title color={colors.primaryLight}>/ Productos</Title>
       <section>
         <ProductsHelmet>
@@ -51,7 +51,7 @@ const Container = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 22px;
   }
 `
 
@@ -72,6 +72,6 @@ const ProductsHelmet = styled.div`
 const ProductsContainer = styled.div`
   display: flex;
   width: 100%;
-  gap: 18px;
+  gap: 22px;
 `
 
