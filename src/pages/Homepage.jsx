@@ -1,18 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from 'react'
 import styled from '@emotion/styled'
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Logistica from "./sections/Logistica";
-import LogisticaMobile from "./sections/LogisticaMobile";
-import Services from "./sections/Services";
-import Hero from "./sections/Hero";
-import ContactButton from './components/ContactButton';
-import { elements } from './theme'
-import { scrollToElementById } from './utils';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Logistica from "../sections/Logistica";
+import LogisticaMobile from "../sections/LogisticaMobile";
+import Services from "../sections/Services";
+import Hero from "../sections/Hero";
+import ContactButton from '../components/ContactButton';
+import { elements } from '../theme'
+import { scrollToElementById } from '../utils';
 import { css } from '@emotion/react';
-import Contact from './sections/Contact';
-import Products from './sections/Products';
+import Contact from '../sections/Contact';
+import Products from '../sections/Products';
 
 export default function Homepage() {
   const isMobile = window.innerWidth <= 800
