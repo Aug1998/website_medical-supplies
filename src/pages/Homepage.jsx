@@ -12,10 +12,12 @@ import { scrollToElementById } from '../utils';
 import { css } from '@emotion/react';
 import Contact from '../sections/Contact';
 import Products from '../sections/Products';
+import { useContentful } from '../hooks/useContentful';
 
 export default function Homepage() {
   const isMobile = window.innerWidth <= 800
   const [mobileNavIsOpen, setMobileNavIsOpen] = useState(false)
+  const { products } = useContentful();
 
   return (
     <>
