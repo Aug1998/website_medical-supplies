@@ -2,6 +2,7 @@
 import styled from '@emotion/styled'
 import { colors, elements, spaces } from '../theme'
 import { scrollToElementById } from '../utils';
+import ProductsMenu from './ProductsMenu';
 
 const Header = (props) => {
   const { isMobile } = props;
@@ -23,7 +24,8 @@ const Header = (props) => {
               Qué hacemos
             </a>
             <a onClick={(e) => {e.preventDefault(); scrollToElementById("productos")}} href="#">
-              Productos
+              <>Productos</>
+              <ProductsMenu />
             </a>
             <ContactButton onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>
               Contacto
@@ -62,7 +64,8 @@ const Nav = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
-  a {
+  & > a{
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,10 +77,13 @@ const Nav = styled.div`
     text-decoration: none;
     color: ${elements.headerFont};
     padding: 0 22px;
-    border-bottom: 3px solid transparent;
+    border-bottom: 4px solid transparent;
     transition: 0.3s;
     &:hover {
       border-color: white;
+      & > div{
+        display: flex;
+      }
     }
   }
   @media only screen and (max-width: 800px) {
@@ -112,7 +118,7 @@ const ContactButton = styled.button`
   cursor: pointer;
   margin-left: 22px;
   &:hover{
-    background-color: ${colors.accent};
-    border-color: ${colors.accent};
+    background-color: ${colors.primaryLight};
+    border-color: ${colors.primaryLight};
   }
 `
