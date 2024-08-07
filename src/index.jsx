@@ -13,7 +13,9 @@ root.render(
     <BrowserRouter>
       <Global styles={GlobalCss} />
       <Routes>
-        <Route path="/product" element={<Product />} />
+        <Route path="/product">
+          <Route path="/product/:productId" element={<Product />} />
+        </Route>
         <Route path="/" element={<Homepage />} />
       </Routes>
     </BrowserRouter>

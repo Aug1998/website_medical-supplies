@@ -19,8 +19,6 @@ export default function ProductsMenu() {
     <Container>
       <ProductsNav>
       {productsByType && activePartOfBody && [...new Set(productsByType[activePartOfBody].map(product => product.fields.type))].map(type => {
-        console.log("type", type);
-        
           return (
             <ProductTypeColumn>
               <h5>{type}</h5>

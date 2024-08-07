@@ -56,11 +56,26 @@ export const useContentful = () => {
       console.log(error)
     }
   }
+  const getSingleProduct = async (productId) => {
+    try {
+      const product = await client.getEntry(productId,
+      {
+        select: "fields"
+      })
+      .then((response) => {
+        return response.fields
+      })
+      return product;
+    } catch (error) {
+      console.log(error)
+    }
+  }
   
   return {
     products,
     uniquePartsOfBody,
     uniqueTypes,
-    productsByType
+    productsByType,
+    getSingleProduct
   }
 }
