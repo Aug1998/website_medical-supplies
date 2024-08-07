@@ -11,9 +11,6 @@ export const colors = {
 }
 
 export const elements = {
-  headerBackground: "#2b343b59",
-  headerFont: colors.white,
-
   title: colors.black,
   titleUnderline: colors.secondary,
 

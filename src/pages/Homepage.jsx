@@ -21,7 +21,7 @@ export default function Homepage() {
 
   return (
     <>
-      <Header handleHamburgerContactButton={() => setMobileNavIsOpen(true)} isMobile={isMobile}/>
+      <Header page="home" handleHamburgerContactButton={() => setMobileNavIsOpen(true)} isMobile={isMobile}/>
       {isMobile && (
         <MobileNav isOpen={mobileNavIsOpen} onClick={() => setMobileNavIsOpen(false)}>
           <a onClick={(e) => {e.preventDefault(); scrollToElementById("caracteristicas")}} href="#">

@@ -10,8 +10,8 @@ const Header = (props) => {
   return (
     <>
       <>
-        <HeaderInner>
-          <Logo src='img/logo.png'/>
+        <HeaderInner page={props.page}>
+          <Logo page={props.page} src='../img/logo.png'/>
           {isMobile && (
             <MobileNavButton onClick={() => props.handleHamburgerButton()}>
               <svg width="36px" height="36px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +19,7 @@ const Header = (props) => {
               </svg>
             </MobileNavButton>
           )}
-          <Nav>
+          <Nav page={props.page}>
             <a onClick={(e) => {e.preventDefault(); scrollToElementById("caracteristicas")}} href="#">
               Qué hacemos
             </a>
@@ -27,7 +27,7 @@ const Header = (props) => {
               <>Productos</>
               <ProductsMenu />
             </a>
-            <ContactButton onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>
+            <ContactButton page={props.page} onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>
               Contacto
             </ContactButton>
           </Nav>
@@ -50,7 +50,10 @@ const HeaderInner = styled.div`
   justify-content: space-between;
   padding: 0 ${spaces.horizontalPadding};
   z-index: 99;
-  background-color: ${elements.headerBackground};
+  ${props => 
+    props.page === "home" ? "background-color: #2b343b59;" : 
+    props.page === "product" ? "background-color: white;"  : ""
+  }
   backdrop-filter: blur(4px);
   * {
     font-family: 'Open Sans'!important;
@@ -76,6 +79,10 @@ const Nav = styled.div`
     text-transform: uppercase;
     text-decoration: none;
     color: ${elements.headerFont};
+    ${props => 
+      props.page === "home" ? "color: white;" : 
+      props.page === "product" ? `color: ${colors.primary};`  : ""
+    }
     padding: 0 22px;
     border-bottom: 4px solid transparent;
     transition: 0.3s;
@@ -93,7 +100,9 @@ const Nav = styled.div`
 
 const Logo = styled.img`
   height: 43px;
-  filter: grayscale(1) brightness(100);
+  ${props => 
+    props.page === "home" ? "filter: grayscale(1) brightness(100);" : ""
+  }
 `
 
 const MobileNavButton = styled.button`

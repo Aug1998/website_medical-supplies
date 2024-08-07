@@ -13,7 +13,7 @@ export default function Footer() {
           behavior: 'smooth',
           left: 0,
           top: 0
-        })} src="./img/logo.png" alt="" />
+        })} src="../img/logo.png" alt="" />
         <ContactData>
           <p><span>_dirección</span> Santa Fe 778 1° Piso</p>
           <p><span>_contacto</span> administracion@medicalsuppliessrl.com</p>

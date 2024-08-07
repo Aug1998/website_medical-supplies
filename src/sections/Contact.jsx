@@ -19,7 +19,7 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-image: url(./img/contact.png);
+  background-image: url(../img/contact.png);
   background-size: cover;
   padding: 100px ${spaces.horizontalPadding} 130px;
 `

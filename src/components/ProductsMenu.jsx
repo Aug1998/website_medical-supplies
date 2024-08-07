@@ -54,7 +54,6 @@ const Container = styled.div`
   top: 90px;
   right: 0;
   display: none;
-  display: flex;
   * {
     transition: all 0.3s;
   }
