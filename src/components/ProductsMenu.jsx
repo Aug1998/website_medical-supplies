@@ -1,33 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import { colors, elements, spaces } from '../theme'
 import Icon from './Icon'
+import { useContentful } from '../hooks/useContentful'
 
 export default function ProductsMenu() {
+  const { uniquePartsOfBody, products, productsByType } = useContentful()
+  const [activePartOfBody, setactivePartOfBody] = useState("")
+
+  useEffect(() => {
+    if (uniquePartsOfBody) {
+      setactivePartOfBody(uniquePartsOfBody[0])
+    }
+  }, [uniquePartsOfBody])
+  
+
   return (
     <Container>
       <ProductsNav>
-        <ProductTypeColumn>
-          <h5>Cotilos</h5>
-          <a>Producto</a>
-          <a>Producto</a>
-          <a>Producto</a>
-          <a>Producto</a>
-        </ProductTypeColumn>
-        <ProductTypeColumn>
-          <h5>Cotilos</h5>
-          <a>Producto</a>
-        </ProductTypeColumn>
+      {productsByType && activePartOfBody && [...new Set(productsByType[activePartOfBody].map(product => product.fields.type))].map(type => {
+        console.log("type", type);
+        
+          return (
+            <ProductTypeColumn>
+              <h5>{type}</h5>
+              {products?.filter(product => product.fields.type === type).map(product => {
+                return (
+                <button onClick={() => window.open(`/producto/${product.sys.id}`,"_self")}>{product.fields.name}</button>
+              )
+              })}
+            </ProductTypeColumn>
+          )
+        })}
       </ProductsNav>
       <BodypartNav>
-        <BodypartItem>
-          <Icon icon="arrowRightSmall"/>
-          Cadera
-        </BodypartItem>
-        <BodypartItem>
-          <Icon icon="arrowRightSmall"/>
-          Rodilla
-        </BodypartItem>
+        {uniquePartsOfBody?.map(item => {
+          return (
+            <BodypartItem 
+              isActive={item === activePartOfBody}
+              onClick={() => setactivePartOfBody(item)}
+            >
+              <Icon icon="arrowRightSmall"/>
+              {item}
+            </BodypartItem>
+          )
+        })}
       </BodypartNav>
     </Container>
   )
@@ -40,6 +57,9 @@ const Container = styled.div`
   right: 0;
   display: none;
   display: flex;
+  * {
+    transition: all 0.3s;
+  }
   &:hover{
     display: flex;
   }
@@ -60,6 +80,7 @@ const BodypartItem = styled.div`
   letter-spacing: 2px;
   position: relative;
   gap: 22px;
+  background-color: ${props => props.isActive ? colors.primaryLight : ""};
   &:hover{
     background-color: ${colors.primaryLight};
   }
@@ -73,7 +94,7 @@ const ProductsNav = styled.div`
   width: 100%;
   display: flex;
   padding: 23px 52px 28px;
-  gap: 56px;
+  gap: 60px;
 `
 
 const ProductTypeColumn = styled.div`
@@ -82,7 +103,7 @@ const ProductTypeColumn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 16px;
+  gap: 14px;
   font-family: 'Open Sans';
   h5 {
     color: ${colors.accent};
@@ -90,7 +111,11 @@ const ProductTypeColumn = styled.div`
     font-weight: 300;
     letter-spacing: 2px;
   }
-  a {
+  button {
+    all: unset;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
     font-weight: 600;
     font-size: 12px;
     line-height: 24px;

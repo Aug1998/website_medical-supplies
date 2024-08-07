@@ -23,7 +23,7 @@ const Header = (props) => {
             <a onClick={(e) => {e.preventDefault(); scrollToElementById("caracteristicas")}} href="#">
               Qué hacemos
             </a>
-            <a onClick={(e) => {e.preventDefault(); scrollToElementById("productos")}} href="#">
+            <a onClick={(e) => {e.preventDefault()}} href="#">
               <>Productos</>
               <ProductsMenu />
             </a>

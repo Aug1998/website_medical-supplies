@@ -9,12 +9,36 @@ const client = contentful.createClient({
 
 export const useContentful = () => {
   const [products, setProducts] = useState()
+  const [productsByType, setProductsByType] = useState()
+  const [uniquePartsOfBody, setUniquePartsOfBody] = useState()
+  const [uniqueTypes, setUniqueTypes] = useState()
+  const [uniqueTypesByBodyPart, setUniqueTypesByBodyPart] = useState()
 
   useEffect(() => {
     getProducts().then((products) => {
       setProducts(products)
     })
   }, [])
+  
+  useEffect(() => {
+    if (products) {
+      setUniquePartsOfBody([...new Set(products.map(product => product.fields.part_of_body))])
+
+      const productsByType = products.reduce((acc, product) => {
+        if (!acc[product.fields.part_of_body]) {
+          acc[product.fields.part_of_body] = [];
+        }
+        acc[product.fields.part_of_body].push(product);
+        return acc;
+      }, {});
+
+      setProductsByType(productsByType)
+
+      setUniqueTypes([...new Set(products.map(product => product.fields.type))])
+    }
+  }, [products])
+
+  
 
   const getProducts = async () => {
     try {
@@ -27,14 +51,16 @@ export const useContentful = () => {
         })
         return items
       })
-      console.log(products);
-      // return products
+      return products
     } catch (error) {
       console.log(error)
     }
   }
   
   return {
-    products
+    products,
+    uniquePartsOfBody,
+    uniqueTypes,
+    productsByType
   }
 }
