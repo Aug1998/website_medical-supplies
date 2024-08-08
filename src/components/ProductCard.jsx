@@ -26,6 +26,10 @@ const Container = styled.div`
   width: 100%;
   max-width: 288px;
   cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;    transform: translateY(-4px);
+  }
 `
 
 const CardImageContainer = styled.div`

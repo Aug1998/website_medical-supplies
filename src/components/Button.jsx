@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { colors, elements } from '../style/theme'
+import { colors } from '../style/theme'
 import Icon from './Icon'
 
 export default function Button({ children, onClick, type }) {
@@ -30,7 +30,13 @@ const StyledButton = styled.button`
   font-family: 'Open Sans';
   cursor: pointer;
   &:hover{
-    background-color: ${`${elements.AboutUsCTABackground}99`};
+    color: ${`${colors.primaryLight}aa`};
+    border-color: ${`${colors.primaryLight}aa`};
+    transform: translateY(-2px);
+    svg {
+      fill: ${`${colors.primaryLight}aa`};
+      transform: translateX(4px);
+    }
   }
   button {
     margin-left: 10px;
