@@ -16,7 +16,7 @@ const StyledButton = styled.button`
   display: flex;
   all: unset; 
   background-color: transparent;
-  color: ${props => props.type === "dark" ? colors.primaryLight : colors.accent};
+  color: ${props => props.type === "dark" ? colors.primaryLight : "white"};
   border-bottom: ${props => props.type === "dark" ? colors.primaryLight : colors.accent} 2px solid;
   font-weight: 700;
   font-size: 16px;
@@ -30,11 +30,12 @@ const StyledButton = styled.button`
   font-family: 'Open Sans';
   cursor: pointer;
   &:hover{
-    color: ${`${colors.primaryLight}aa`};
+    color: ${props => props.type === "dark" ? colors.primaryLight + `aa` : "white"};
     border-color: ${`${colors.primaryLight}aa`};
+    border-color: ${props => props.type === "dark" ? colors.primaryLight + `aa` : colors.accent + `aa`};
     transform: translateY(-2px);
     svg {
-      fill: ${`${colors.primaryLight}aa`};
+      fill: ${props => props.type === "dark" ? colors.primaryLight + `aa` : colors.accent + `aa`};
       transform: translateX(4px);
     }
   }
