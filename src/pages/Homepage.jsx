@@ -7,12 +7,12 @@ import Logistica from "../sections/Logistica";
 import LogisticaMobile from "../sections/LogisticaMobile";
 import Services from "../sections/Services";
 import Hero from "../sections/Hero";
-import { elements } from '../theme'
-import { scrollToElementById } from '../utils';
+import { elements } from '../css/theme'
+import { scrollToElementById } from '../utils/utils';
 import { css } from '@emotion/react';
 import Contact from '../sections/Contact';
 import Products from '../sections/Products';
-import { useContentful } from '../useContentful';
+import { useContentful } from '../contentfulStore';
 
 export default function Homepage() {
   const isMobile = window.innerWidth <= 800

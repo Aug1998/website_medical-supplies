@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { elements, spaces } from '../theme'
+import { elements, spaces } from '../css/theme'
 import Icon from "./Icon";
 
 export default function Footer() {

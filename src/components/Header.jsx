@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import styled from '@emotion/styled'
-import { colors, elements, spaces } from '../theme'
-import { scrollToElementById } from '../utils';
+import { colors, elements, spaces } from '../css/theme'
+import { scrollToElementById } from '../utils/utils';
 import ProductsMenu from './ProductsMenu';
 
 const Header = (props) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import Title from '../components/Title'
-import { spaces, colors } from '../theme'
+import { spaces, colors } from '../css/theme'
 import Button from '../components/Button'
 import ProductCard from '../components/ProductCard'
 

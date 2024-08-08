@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
-import { colors, elements, spaces } from '../theme'
+import { colors, elements, spaces } from '../css/theme'
 import Icon from './Icon'
-import { useContentful } from '../useContentful'
+import { useContentful } from '../contentfulStore'
 
 export default function ProductsMenu() {
   const { uniquePartsOfBody, products, productsByType } = useContentful()

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { elements } from '../theme'
-import { colors } from '../theme'
+import { elements } from '../css/theme'
+import { colors } from '../css/theme'
 
 export default function Title({ children, color }) {
   return (
