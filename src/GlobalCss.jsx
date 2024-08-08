@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import { colors } from './theme'
 
 export const GlobalCss = css`
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
@@ -9,7 +10,7 @@ export const GlobalCss = css`
     overflow-x: hidden;
     display: flex;
     justify-content: center;
-    background-color: white;
+    background-color: ${colors.grayBackground};
     display: flex;
     flex-direction: column;
     align-items: center;

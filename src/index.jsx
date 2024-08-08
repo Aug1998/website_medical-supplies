@@ -4,7 +4,7 @@ import Homepage from './pages/Homepage';
 import { Global } from '@emotion/react'
 import { GlobalCss } from './GlobalCss'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Product from './pages/Product';
+import ProductPage from './pages/ProductPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -14,7 +14,7 @@ root.render(
       <Global styles={GlobalCss} />
       <Routes>
         <Route path="/product">
-          <Route path="/product/:productId" element={<Product />} />
+          <Route path="/product/:productId" element={<ProductPage />} />
         </Route>
         <Route path="/" element={<Homepage />} />
       </Routes>

@@ -12,7 +12,6 @@ export const useContentful = () => {
   const [productsByType, setProductsByType] = useState()
   const [uniquePartsOfBody, setUniquePartsOfBody] = useState()
   const [uniqueTypes, setUniqueTypes] = useState()
-  const [uniqueTypesByBodyPart, setUniqueTypesByBodyPart] = useState()
 
   useEffect(() => {
     getProducts().then((products) => {
@@ -56,6 +55,7 @@ export const useContentful = () => {
       console.log(error)
     }
   }
+
   const getSingleProduct = async (productId) => {
     try {
       const product = await client.getEntry(productId,

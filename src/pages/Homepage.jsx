@@ -73,7 +73,7 @@ const MobileNav = styled.div`
   transition: all 0.3s;
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(20px);
-  Contactbutton {
+  button {
     margin-top: 28px;
   }
   a {
@@ -84,7 +84,6 @@ const MobileNav = styled.div`
     text-decoration: none;
     color: ${elements.headerFont};
   }
-  
   height: 100%;
   z-index: -1;
   opacity: 0;
