@@ -5,7 +5,7 @@ import Icon from './Icon'
 
 export default function ProductCard(props) {
   return (
-    <Container>
+    <Container onClick={() => window.open(`#/product/7tSrzYbA6iS3RQyZGEMStU`,"_blank")}>
       <CardImageContainer>
         <img src={props.img} alt=''/>
       </CardImageContainer>
