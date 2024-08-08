@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import styled from '@emotion/styled'
-import { colors, elements, spaces } from '../style/theme'
+import styled from '@emotion/styled';
+import { colors, elements, spaces } from '../style/theme';
 import { scrollToElementById } from '../utils/utils';
 import ProductsMenu from './ProductsMenu';
 
@@ -11,7 +11,7 @@ const Header = (props) => {
     <>
       <>
         <HeaderInner page={props.page}>
-          <Logo page={props.page} src='../img/logo.png'/>
+          <Logo page={props.page} src='../img/logo.png' onClick={() => window.open(`/`,"_self")}/>
           {isMobile && (
             <MobileNavButton onClick={() => props.handleHamburgerButton()}>
               <svg width="36px" height="36px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,14 +20,21 @@ const Header = (props) => {
             </MobileNavButton>
           )}
           <Nav page={props.page}>
-            <a onClick={(e) => {e.preventDefault(); scrollToElementById("caracteristicas")}} href="#">
-              Qué hacemos
-            </a>
-            <a onClick={(e) => {e.preventDefault()}} href="#">
-              <>Productos</>
-              <ProductsMenu />
-            </a>
-            <ContactButton page={props.page} onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>
+            {props.page === 'home' && (
+              <a onClick={(e) => {e.preventDefault(); scrollToElementById("caracteristicas")}} href="#">
+                Qué hacemos
+              </a>
+            )}
+            {props.page !== 'home' && (
+              <a onClick={() => window.open(`/`,"_self")} href="#">
+                Inicio
+              </a>
+            )}
+            <ControlledNavItem page={props.page}>
+              <a onClick={() => window.open(`/products`,"_self")} href="#">Productos</a>
+              <ProductsMenu onClick={() => {}}/>
+            </ControlledNavItem>
+            <ContactButton type={props.page === "home" ? 'light' : 'dark'} page={props.page} onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>
               Contacto
             </ContactButton>
           </Nav>
@@ -84,10 +91,10 @@ const Nav = styled.div`
       props.page === "product" ? `color: ${colors.primary};`  : ""
     }
     padding: 0 22px;
-    border-bottom: 4px solid transparent;
     transition: 0.3s;
+    border-bottom: 4px solid transparent;
     &:hover {
-      border-color: white;
+      border-color: ${props => props.page === 'home' ? 'white' : colors.primary};
       & > div{
         display: flex;
       }
@@ -99,6 +106,7 @@ const Nav = styled.div`
 `
 
 const Logo = styled.img`
+  cursor: pointer;
   height: 43px;
   ${props => 
     props.page === "home" ? "filter: grayscale(1) brightness(100);" : ""
@@ -113,9 +121,9 @@ const MobileNavButton = styled.button`
 
 const ContactButton = styled.button`
   all: unset; 
+  border: ${props => props.type === 'light' ? 'white' : colors.primary} 2px solid;
+  color: ${props => props.type === 'light' ? 'white' : colors.primary};
   background-color: transparent;
-  color: white;
-  border: white 2px solid;
   font-weight: 700;
   font-size: 12px;
   display: flex;
@@ -127,7 +135,44 @@ const ContactButton = styled.button`
   cursor: pointer;
   margin-left: 22px;
   &:hover{
+    color: white;
     background-color: ${colors.primaryLight};
     border-color: ${colors.primaryLight};
   }
-`
+  `
+
+  const ControlledNavItem = styled.div`
+    cursor: pointer;
+    height: 100%;
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 0 22px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 4px solid ${props => props.page === 'product' ? colors.primary : 'transparent'};
+      &:hover {
+        border-color: ${props => props.page === 'home' ? 'white' : colors.primary};
+      }
+      ${props => 
+        props.page === "home" ? "color: white;" : 
+        props.page === "product" ? `color: ${colors.primary};` : ""
+      }
+    }
+
+    &:hover {
+      & > div{
+        display: flex;
+      }
+    }
+  `

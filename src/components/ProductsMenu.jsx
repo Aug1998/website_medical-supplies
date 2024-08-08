@@ -24,7 +24,7 @@ export default function ProductsMenu() {
               <h5>{type}</h5>
               {products?.filter(product => product.fields.type === type).map(product => {
                 return (
-                <button onClick={() => window.open(`/producto/${product.sys.id}`,"_self")}>{product.fields.name}</button>
+                <button onClick={() => window.open(`/product/${product.sys.id}`,"_self")}>{product.fields.name}</button>
               )
               })}
             </ProductTypeColumn>
@@ -56,6 +56,7 @@ const Container = styled.div`
   display: none;
   * {
     transition: all 0.3s;
+    color: white;
   }
   &:hover{
     display: flex;

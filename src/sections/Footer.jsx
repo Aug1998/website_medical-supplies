@@ -49,6 +49,9 @@ const FooterTop = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  img {
+    cursor: pointer;
+  }
 `
 
 const Footerbottom = styled.div`

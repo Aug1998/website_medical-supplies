@@ -17,11 +17,10 @@ export default function SingleProduct({ product }) {
         <img src={product.image?.fields.file.url} alt='product'></img>
         <ProductData>
           <h5>{product.brand}</h5>
-          <h3>{product.name}</h3>
+          <h3>{product.name.toLowerCase()}</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quis ex at nesciunt magni molestiae similique corrupti rem unde ducimus! Minus autem facilis id! Voluptatibus saepe incidunt asperiores cum amet.</p>
         </ProductData>
       </ProductContainer>
-
       <ProductRow title='_artículos relacionados'/>
     </Container>
   )
@@ -66,6 +65,7 @@ const ProductData = styled.div`
   }
   h3 {
     color: ${colors.black};
+    text-transform: capitalize;
     font-family: 'Poppins';
     font-weight: 500;
     font-size: 40px;
