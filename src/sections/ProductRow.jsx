@@ -1,13 +1,11 @@
 import styled from '@emotion/styled'
 import Button from '../components/Button'
 import ProductCard from '../components/ProductCard'
-import Title from '../components/Title'
-import { colors, spaces } from '../style/theme'
+import { colors } from '../style/theme'
 
 export default function ProductRow() {
   return (
     <Container id="productos">
-      <Title color={colors.primaryLight}>/ Productos</Title>
       <section>
         <ProductsHelmet>
           <h4>_permédica</h4>
@@ -31,7 +29,7 @@ const Container = styled.div`
   align-items: flex-start;
   width: 100%;
   background-size: cover;
-  padding: 100px ${spaces.horizontalPadding} 130px;
+  margin-bottom: 60px;
   gap: 56px;
   section {
     width: 100%;

@@ -2,6 +2,7 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import Header from "../components/Header";
+import Title from "../components/Title";
 import Contact from "../sections/Contact";
 import Footer from "../sections/Footer";
 import Hero from "../sections/Hero";
@@ -9,7 +10,8 @@ import Logistica from "../sections/Logistica";
 import LogisticaMobile from "../sections/LogisticaMobile";
 import ProductRow from "../sections/ProductRow";
 import Services from "../sections/Services";
-import { elements } from "../style/theme";
+import { Padding } from "../style/GlobalCss";
+import { colors, elements } from "../style/theme";
 import { useContentfulStore } from "../useContentfulStore";
 import { scrollToElementById } from "../utils/utils";
 
@@ -38,8 +40,11 @@ export default function Homepage() {
       <PageContent>
         <Hero />
         <Services />
-        <ProductRow />
-        <ProductRow />
+        <Padding>
+          <Title color={colors.primaryLight}>/ Productos</Title>
+          <ProductRow />
+          <ProductRow />
+        </Padding>
         {isMobile ? (
           <LogisticaMobile />
       ) : (

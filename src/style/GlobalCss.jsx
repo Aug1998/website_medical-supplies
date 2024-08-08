@@ -1,10 +1,11 @@
 import { css } from '@emotion/react'
-import { colors } from './theme'
+import styled from '@emotion/styled/macro'
+import { colors, spaces } from './theme'
 
 export const GlobalCss = css`
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
-
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+  
   #root{
     width: 100dvw;
     overflow-x: hidden;
@@ -26,4 +27,8 @@ export const GlobalCss = css`
     width: 100dvw;
     overflow-x: hidden;
   }
+`
+
+export const Padding = styled.div`
+  padding: 60px ${spaces.horizontalPadding};
 `

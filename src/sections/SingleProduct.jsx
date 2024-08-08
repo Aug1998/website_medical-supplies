@@ -1,9 +1,8 @@
 import styled from '@emotion/styled/macro';
 import { useEffect } from 'react';
 import Breadcrums from '../components/Breadcrums';
-import Button from '../components/Button';
-import ProductCard from '../components/ProductCard';
 import { colors, spaces } from '../style/theme';
+import ProductRow from './ProductRow';
 
 export default function SingleProduct({ product }) {
 
@@ -23,18 +22,7 @@ export default function SingleProduct({ product }) {
         </ProductData>
       </ProductContainer>
 
-      <section>
-        <ProductsHelmet>
-          <h4>_disame</h4>
-          <Button type={"dark"}>Ver más</Button>
-        </ProductsHelmet>
-        <ProductsContainer>
-          <ProductCard name={"Producto 1"} img={'../img/product-sample.png'}/>
-          <ProductCard name={"Producto 2"} img={'../img/product-sample.png'}/>
-          <ProductCard name={"Producto 3"} img={'../img/product-sample.png'}/>
-          <ProductCard name={"Producto 4"} img={'../img/product-sample.png'}/>
-        </ProductsContainer>
-      </section>
+      <ProductRow />
     </Container>
   )
 }
