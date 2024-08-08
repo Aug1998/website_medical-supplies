@@ -24,12 +24,12 @@ const Container = styled.div`
   font-size: 15px;
   line-height: 15px;
   letter-spacing: 1.5px;
-  color: ${colors.primary};
+  color: ${colors.primaryLight};
   * {
     font-family: 'Open Sans';
   }
   a {
-    color: ${colors.primary};
+    color: ${colors.primaryLight};
     text-decoration: none;
     &:hover {
       text-decoration: underline;

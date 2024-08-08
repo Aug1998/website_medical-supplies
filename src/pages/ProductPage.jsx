@@ -41,5 +41,5 @@ const PageContent = styled.div`
   flex-direction: column;
   width: 100%;
   justify-content: flex-start;
-  padding-top: 90px;
+  padding-top: 120px;
 `
