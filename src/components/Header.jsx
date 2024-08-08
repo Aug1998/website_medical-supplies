@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import styled from '@emotion/styled'
-import { colors, elements, spaces } from '../css/theme'
+import { colors, elements, spaces } from '../style/theme'
 import { scrollToElementById } from '../utils/utils';
 import ProductsMenu from './ProductsMenu';
 

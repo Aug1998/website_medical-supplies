@@ -1,6 +1,5 @@
-import React from 'react'
 import styled from '@emotion/styled'
-import { elements } from '../theme'
+import { elements } from '../styles/theme'
 
 export default function Subtitle({ children, color }) {
   return (

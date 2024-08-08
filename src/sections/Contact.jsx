@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import ContactForm from "../components/ContactForm";
-import { spaces } from '../css/theme'
+import { spaces } from '../style/theme'
 
 export default function Contact() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { spaces, colors } from '../css/theme'
+import { spaces, colors } from '../style/theme'
 import Icon from './Icon'
 
 export default function ProductCard(props) {

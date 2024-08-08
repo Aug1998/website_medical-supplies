@@ -1,36 +1,36 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import { useState } from 'react'
-import styled from '@emotion/styled'
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+import { useState } from "react";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Contact from "../sections/Contact";
+import Footer from "../sections/Footer";
+import Hero from "../sections/Hero";
 import Logistica from "../sections/Logistica";
 import LogisticaMobile from "../sections/LogisticaMobile";
+import ProductRow from "../sections/ProductRow";
 import Services from "../sections/Services";
-import Hero from "../sections/Hero";
-import { elements } from '../css/theme'
-import { scrollToElementById } from '../utils/utils';
-import { css } from '@emotion/react';
-import Contact from '../sections/Contact';
-import Products from '../sections/Products';
-import { useContentful } from '../contentfulStore';
+import { elements } from "../style/theme";
+import { useContentfulStore } from "../useContentfulStore";
+import { scrollToElementById } from "../utils/utils";
+
 
 export default function Homepage() {
   const isMobile = window.innerWidth <= 800
   const [mobileNavIsOpen, setMobileNavIsOpen] = useState(false)
-  const { products } = useContentful();
+  const { products } = useContentfulStore;
 
   return (
     <>
       <Header page="home" handleHamburgerContactButton={() => setMobileNavIsOpen(true)} isMobile={isMobile}/>
       {isMobile && (
         <MobileNav isOpen={mobileNavIsOpen} onClick={() => setMobileNavIsOpen(false)}>
-          <a onClick={(e) => {e.preventDefault(); scrollToElementById("caracteristicas")}} href="#">
+          <a onClick={(e) => {e.preventDefault(); scrollToElementById("caracteristicas")}} href="./">
             Características
           </a>
-          <a onClick={(e) => {e.preventDefault(); scrollToElementById("sobre-nosotros")}} href="#">
+          <a onClick={(e) => {e.preventDefault(); scrollToElementById("sobre-nosotros")}} href="./">
             Sobre Nosotros
           </a>
-          <a onClick={(e) => {e.preventDefault(); scrollToElementById("precios")}} href="#">
+          <a onClick={(e) => {e.preventDefault(); scrollToElementById("precios")}} href="./">
             Precios
           </a>
         </MobileNav>
@@ -45,9 +45,9 @@ export default function Homepage() {
       ) : (
           <Logistica />
         )}
-      <Contact />
+        <Contact />
       </PageContent>
-      <Footer></Footer>
+      <Footer />
     </>
   );
 }

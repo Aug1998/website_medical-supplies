@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { colors, elements } from '../css/theme'
+import { colors, elements } from '../style/theme'
 import Icon from './Icon'
 
 export default function Button({ children, onClick, type }) {

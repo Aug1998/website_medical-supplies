@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
-import { colors, elements, spaces } from '../css/theme'
+import { useEffect, useState } from 'react'
+import { colors } from '../style/theme'
+import { useContentfulStore } from '../useContentfulStore'
 import Icon from './Icon'
-import { useContentful } from '../contentfulStore'
 
 export default function ProductsMenu() {
-  const { uniquePartsOfBody, products, productsByType } = useContentful()
+  const { uniquePartsOfBody, products, productsByType } = useContentfulStore()
   const [activePartOfBody, setactivePartOfBody] = useState("")
 
   useEffect(() => {

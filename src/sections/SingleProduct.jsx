@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react'
 import styled from '@emotion/styled/macro';
+import { useEffect } from 'react';
 import Breadcrums from '../components/Breadcrums';
-import { colors, spaces } from '../theme';
 import Button from '../components/Button';
 import ProductCard from '../components/ProductCard';
+import { colors, spaces } from '../style/theme';
 
 export default function SingleProduct({ product }) {
 

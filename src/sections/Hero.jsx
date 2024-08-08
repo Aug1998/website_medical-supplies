@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { colors, elements, spaces } from '../css/theme'
+import { colors, elements, spaces } from '../style/theme'
 import Button from '../components/Button'
 
 export default function Hero() {

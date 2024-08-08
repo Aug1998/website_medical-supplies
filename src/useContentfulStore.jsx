@@ -7,7 +7,7 @@ const client = contentful.createClient({
   accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN
 });
 
-export const useContentful = () => {
+export const useContentfulStore = () => {
   const [products, setProducts] = useState()
   const [productsByType, setProductsByType] = useState()
   const [uniquePartsOfBody, setUniquePartsOfBody] = useState()

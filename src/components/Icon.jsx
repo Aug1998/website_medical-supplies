@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { elements } from '../css/theme'
+import { elements } from '../style/theme'
 
 export default function Icon({ icon, size, withBorder, link }) {
   return (

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import styled from '@emotion/styled'
-import { colors, spaces } from '../css/theme'
+import { colors, spaces } from '../style/theme'
 
 
 export default function Logistica() {

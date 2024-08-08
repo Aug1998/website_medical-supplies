@@ -1,11 +1,10 @@
-import React from 'react'
 import styled from '@emotion/styled'
-import Title from '../components/Title'
-import { spaces, colors } from '../css/theme'
 import Button from '../components/Button'
 import ProductCard from '../components/ProductCard'
+import Title from '../components/Title'
+import { colors, spaces } from '../style/theme'
 
-export default function ProductsRow() {
+export default function ProductRow() {
   return (
     <Container id="productos">
       <Title color={colors.primaryLight}>/ Productos</Title>

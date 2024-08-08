@@ -1,9 +1,8 @@
-import React from 'react'
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
+import Button from "../components/Button";
 import Subtitle from "../components/Subtitle";
 import Title from "../components/Title";
-import Button from "../components/Button";
-import { elements, spaces } from '../theme'
+import { elements, spaces } from '../styles/theme';
 
 export default function AboutUs() {
   return (

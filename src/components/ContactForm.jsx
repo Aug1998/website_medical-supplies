@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import styled from '@emotion/styled'
-import { colors, elements } from '../css/theme'
+import { colors, elements } from '../style/theme'
 import emailjs from '@emailjs/browser';
 import Button from './Button';
 import Title from './Title';

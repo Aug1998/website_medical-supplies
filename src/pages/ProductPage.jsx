@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import styled from '@emotion/styled/macro';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
-import styled from '@emotion/styled/macro';
 import Contact from '../sections/Contact';
-import Footer from '../components/Footer';
-import { useContentful } from '../hooks/useContentful';
+import Footer from '../sections/Footer';
 import SingleProduct from '../sections/SingleProduct';
-import { colors, spaces } from '../theme';
-import Breadcrums from '../components/Breadcrums';
+import { useContentfulStore } from '../useContentfulStore';
 
 export default function ProductPage() {
   let { productId } = useParams();
   const isMobile = window.innerWidth <= 800
   const [mobileNavIsOpen, setMobileNavIsOpen] = useState(false)
-  const { getSingleProduct } = useContentful();
+  const { getSingleProduct } = useContentfulStore();
   const [product, setProduct] = useState()
 
   useEffect(() => {

@@ -1,6 +1,4 @@
 import styled from '@emotion/styled/macro'
-import React from 'react'
-import { spaces } from '../theme'
 
 export default function Breadcrums() {
   return (
