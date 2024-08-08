@@ -59,7 +59,6 @@ const Footerbottom = styled.div`
   height: 60px;
   p {
     font-size: 13px;
-    margin-bottom: 8px;
     color: #7FBBBA;
   }
 `

@@ -1,6 +1,6 @@
-import React from 'react'
 import styled from '@emotion/styled'
-import { spaces, colors } from '../style/theme'
+import React from 'react'
+import { colors, spaces } from '../style/theme'
 import Icon from './Icon'
 
 export default function ProductCard(props) {
@@ -46,7 +46,7 @@ const CardBody = styled.div`
   height: calc(((100vw - ${spaces.horizontalPadding} - ${spaces.horizontalPadding} - 72px) / 4) * 0.46875);
   background-color: ${colors.primaryLight};
   padding: 14px 18px 16px;
-  border-bottom: 4px solid ${colors.accent};
+  border-bottom: 3px solid ${colors.accent};
   display: flex;
   flex-direction: column;
   align-items: flex-start;
