@@ -22,7 +22,7 @@ export default function SingleProduct({ product }) {
         </ProductData>
       </ProductContainer>
 
-      <ProductRow />
+      <ProductRow title='_artículos relacionados'/>
     </Container>
   )
 }
@@ -52,15 +52,17 @@ const ProductData = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
+  padding: 20px 0;
   h5 {
     color: ${colors.primary};
     font-family: 'Open Sans';
     font-weight: 700;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 15px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin-bottom: 14px;
+    margin-bottom: 20px;
+    padding-left: 2px;
   }
   h3 {
     color: ${colors.black};
@@ -68,13 +70,13 @@ const ProductData = styled.div`
     font-weight: 500;
     font-size: 40px;
     line-height: 48px;
-    margin-bottom: 36px;
+    margin-bottom: 40px;
   }
   p {
     color: #6B6B6B;
     font-family: 'Open Sans';
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
   }
 `

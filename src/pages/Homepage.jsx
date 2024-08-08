@@ -42,8 +42,8 @@ export default function Homepage() {
         <Services />
         <Padding>
           <Title color={colors.primaryLight}>/ Productos</Title>
-          <ProductRow />
-          <ProductRow />
+          <ProductRow title="_permédica" />
+          <ProductRow title="_disame" />
         </Padding>
         {isMobile ? (
           <LogisticaMobile />
