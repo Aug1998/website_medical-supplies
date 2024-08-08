@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import { colors, elements, spaces } from '../theme'
 import Icon from './Icon'
-import { useContentful } from '../hooks/useContentful'
+import { useContentful } from '../useContentful'
 
 export default function ProductsMenu() {
   const { uniquePartsOfBody, products, productsByType } = useContentful()

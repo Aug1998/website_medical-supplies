@@ -12,7 +12,7 @@ import { scrollToElementById } from '../utils';
 import { css } from '@emotion/react';
 import Contact from '../sections/Contact';
 import Products from '../sections/Products';
-import { useContentful } from '../hooks/useContentful';
+import { useContentful } from '../useContentful';
 
 export default function Homepage() {
   const isMobile = window.innerWidth <= 800
@@ -38,7 +38,8 @@ export default function Homepage() {
       <PageContent>
         <Hero />
         <Services />
-        <Products />
+        <ProductRow />
+        <ProductRow />
         {isMobile ? (
           <LogisticaMobile />
       ) : (

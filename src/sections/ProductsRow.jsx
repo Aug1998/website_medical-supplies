@@ -5,26 +5,13 @@ import { spaces, colors } from '../theme'
 import Button from '../components/Button'
 import ProductCard from '../components/ProductCard'
 
-export default function Products() {
+export default function ProductsRow() {
   return (
     <Container id="productos">
       <Title color={colors.primaryLight}>/ Productos</Title>
       <section>
         <ProductsHelmet>
           <h4>_permédica</h4>
-          <Button type={"dark"}>Ver más</Button>
-        </ProductsHelmet>
-        <ProductsContainer>
-          <ProductCard name={"Producto 1"} img={'../img/product-sample.png'}/>
-          <ProductCard name={"Producto 2"} img={'../img/product-sample.png'}/>
-          <ProductCard name={"Producto 3"} img={'../img/product-sample.png'}/>
-          <ProductCard name={"Producto 4"} img={'../img/product-sample.png'}/>
-        </ProductsContainer>
-      </section>
-
-      <section>
-        <ProductsHelmet>
-          <h4>_disame</h4>
           <Button type={"dark"}>Ver más</Button>
         </ProductsHelmet>
         <ProductsContainer>
