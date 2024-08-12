@@ -1,7 +1,7 @@
-import React from 'react'
 import styled from '@emotion/styled'
-import { colors, elements, spaces } from '../style/theme'
+import React from 'react'
 import Button from '../components/Button'
+import { colors, elements, spaces } from '../style/theme'
 
 export default function Hero() {
   return (
@@ -11,8 +11,7 @@ export default function Hero() {
         <HeroContent>
           <img src="./img/permedica.png" alt="" />
           <MainTitle>
-            _Conocé la calidad y excelencia <br/>
-            de nuestros insumos médicos. 
+            _Conocé la calidad y excelencia de nuestros insumos médicos. 
           </MainTitle>
           <Button>Conocenos</Button>
         </HeroContent>
@@ -39,6 +38,9 @@ const HeroContent = styled.div`
   img {
     width: 122px;
     filter: grayscale(1) brightness(100);
+  }
+  @media only screen and (max-width: 800px) {
+    padding: 0 ${spaces.horizontalPaddingMobile};
   }
 `
 
@@ -67,7 +69,7 @@ const Container = styled.div`
   }
 `
 
-const MainTitle = styled.h1`
+const MainTitle = styled.h2`
   font-family: "Poppins", "Nunito", sans-serif;
   color: ${elements.HeroTitle};
   text-align: left;
@@ -82,10 +84,8 @@ const MainTitle = styled.h1`
     padding: 0px 10px;
   }
   @media only screen and (max-width: 800px) {
-    font-size: 28px;
-    line-height: 38px;
-    br {
-      display: block;
-    }
+    font-size: 33px;
+    line-height: 44px;
+    max-width: 17ch;
   }
 `

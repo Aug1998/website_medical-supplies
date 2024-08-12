@@ -48,4 +48,5 @@ export const elements = {
 
 export const spaces = {
   horizontalPadding: "15vw",
+  horizontalPaddingMobile: "4vw",
 }

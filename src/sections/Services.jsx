@@ -1,6 +1,6 @@
-import React from 'react'
 import styled from '@emotion/styled'
-import { elements, spaces, colors } from '../style/theme'
+import React from 'react'
+import { colors, elements, spaces } from '../style/theme'
 
 export default function Services() {
   return (
@@ -57,7 +57,8 @@ const Container = styled.div`
   padding: 100px ${spaces.horizontalPadding} 100px;
   background-color: ${elements.ServicesBackground};
   @media only screen and (max-width: 800px) {
-    padding: 100px 12px 100px;
+    padding: 60px ${spaces.horizontalPaddingMobile};
+    flex-direction: column;
   }
 `
 
@@ -71,6 +72,10 @@ const Title = styled.div`
     letter-spacing: 1.5px;
     text-transform: uppercase;
   }
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+    margin-bottom: 44px;
+  }
 `
 
 const ServicesContainer = styled.ul`
@@ -82,6 +87,9 @@ const ServicesContainer = styled.ul`
   flex-direction: column;
   gap: 36px;
   padding: 36px 0;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
 `
 
 const ServicesItem = styled.li`
@@ -104,6 +112,9 @@ const ServicesItem = styled.li`
     color: white;
     line-height: 33px;
     width: 160px;
+    @media only screen and (max-width: 800px) {
+      width: 100%;
+    }
   }
   div {
     display: flex;
@@ -128,6 +139,13 @@ const ServicesItem = styled.li`
         color: ${colors.accent};
         text-decoration: underline;
       }
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+    gap: 30px;
+    br {
+      display: none;
     }
   }
 `

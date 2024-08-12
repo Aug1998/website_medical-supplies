@@ -14,8 +14,8 @@ const Header = (props) => {
           <Logo page={props.page} src='../img/logo.png' onClick={() => window.open(`/`,"_self")}/>
           {isMobile && (
             <MobileNavButton onClick={() => props.handleHamburgerButton()}>
-              <svg width="36px" height="36px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 6.00092H21M3 12.0009H21M3 18.0009H21" stroke={colors.secondary} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg width="36px" height="36px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6.00092H21M3 12.0009H21M3 18.0009H21" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </MobileNavButton>
           )}
@@ -120,6 +120,9 @@ const MobileNavButton = styled.button`
   background-color: transparent;
   border: none;
   outline: none;
+  svg {
+    stroke: white!important;
+  }
 `
 
 const ContactButton = styled.button`
