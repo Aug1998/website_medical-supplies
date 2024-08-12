@@ -18,13 +18,16 @@ export default function ProductsMenu() {
   return (
     <Container>
       <ProductsNav>
-      {productsByType && activePartOfBody && [...new Set(productsByType[activePartOfBody].map(product => product.fields.type))].map(type => {
+      {productsByType && activePartOfBody && 
+        [...new Set(productsByType[activePartOfBody]
+          .map(product => product.fields.type))]
+          .map((type, index) => {
           return (
-            <ProductTypeColumn>
+            <ProductTypeColumn key={index * Math.random()}>
               <h5>{type}</h5>
               {products?.filter(product => product.fields.type === type).map(product => {
                 return (
-                <button onClick={() => window.open(`/product/${product.sys.id}`,"_self")}>{product.fields.name}</button>
+                <button key={(index + 1) * Math.random()} onClick={() => window.open(`/product/${product.sys.id}`,"_self")}>{product.fields.name}</button>
               )
               })}
             </ProductTypeColumn>
@@ -32,9 +35,10 @@ export default function ProductsMenu() {
         })}
       </ProductsNav>
       <BodypartNav>
-        {uniquePartsOfBody?.map(item => {
+        {uniquePartsOfBody?.map((item, index) => {
           return (
             <BodypartItem 
+              key={index}
               isActive={item === activePartOfBody}
               onClick={() => setactivePartOfBody(item)}
             >
