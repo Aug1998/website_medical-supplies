@@ -59,7 +59,10 @@ const HeaderInner = styled.div`
   z-index: 99;
   ${props => 
     props.page === "home" ? "background-color: #2b343b59;" : 
-    props.page === "product" ? "background-color: white;"  : ""
+    props.page === "product" ? `
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    `  : ""
   }
   backdrop-filter: blur(4px);
   * {

@@ -18,7 +18,15 @@ export default function SingleProduct({ product }) {
         <ProductData>
           <h5>{product.brand}</h5>
           <h3>{product.name.toLowerCase()}</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quis ex at nesciunt magni molestiae similique corrupti rem unde ducimus! Minus autem facilis id! Voluptatibus saepe incidunt asperiores cum amet.</p>
+          {product.description && (
+            product.description.content.map(item => {
+             if (item.nodeType === 'paragraph') {
+               return (<><p>{item.content[0].value}</p><br/></>)
+              }
+              return (<><p>nothing</p><br/></>)
+            }))
+            }
+          {/* <p>{product.description}</p> */}
         </ProductData>
       </ProductContainer>
       <ProductRow title='_artículos relacionados'/>
