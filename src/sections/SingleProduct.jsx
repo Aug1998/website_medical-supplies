@@ -1,6 +1,6 @@
 import styled from '@emotion/styled/macro';
 import { useEffect } from 'react';
-import Breadcrums from '../components/Breadcrums';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { colors, spaces } from '../style/theme';
 import ProductRow from './ProductRow';
 
@@ -12,7 +12,7 @@ export default function SingleProduct({ product }) {
   
   return (
     <Container>
-      <Breadcrums />
+      <Breadcrumbs />
       <ProductContainer>
         <img src={product.image?.fields.file.url} alt='product'></img>
         <ProductData>

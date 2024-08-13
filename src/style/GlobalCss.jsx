@@ -53,4 +53,7 @@ export const GlobalCss = css`
 
 export const Padding = styled.div`
   padding: 60px ${spaces.horizontalPadding};
+  @media only screen and (max-width: 800px) {
+    padding: 60px ${spaces.horizontalPaddingMobile};
+  }
 `

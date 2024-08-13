@@ -30,6 +30,9 @@ const Container = styled.div`
   &:hover {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;    transform: translateY(-4px);
   }
+  @media only screen and (max-width: 800px) {
+    max-width: unset;
+  }
 `
 
 const CardImageContainer = styled.div`
@@ -42,6 +45,12 @@ const CardImageContainer = styled.div`
   background-color: white;
   img {
     width: 100%;
+  }
+  @media only screen and (max-width: 800px) {
+    height: unset;
+    img {
+      width: 84%;
+    }
   }
   `
 
@@ -74,6 +83,17 @@ const CardBody = styled.div`
     width: 100%;
     svg {
       fill: ${colors.accent};
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    padding: 20px;
+    height: unset;
+    gap: 30px;
+    p {
+      font-size: 18px;
+    }
+    a {
+      font-size: 14px;
     }
   }
 `

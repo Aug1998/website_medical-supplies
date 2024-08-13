@@ -37,6 +37,10 @@ const Container = styled.div`
     flex-direction: column;
     gap: 36px;
   }
+  @media only screen and (max-width: 800px) {
+    padding: 0;
+    margin-bottom: 90px;
+  }
 `
 
 const ProductsHelmet = styled.div`
@@ -60,5 +64,9 @@ const ProductsContainer = styled.div`
   display: flex;
   width: 100%;
   gap: 22px;
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled/macro';
 import { colors } from '../style/theme';
 
-export default function Breadcrums() {
+export default function Breadcrumbs() {
   return (
     <Container>
       <a href='/'>Inicio</a>
