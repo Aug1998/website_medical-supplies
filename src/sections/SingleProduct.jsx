@@ -1,41 +1,57 @@
 import styled from '@emotion/styled/macro';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Breadcrumbs from '../components/Breadcrumbs';
+import Loader from '../components/Loader';
 import { colors, spaces } from '../style/theme';
 import ProductRow from './ProductRow';
 
 export default function SingleProduct({ product }) {
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    console.log(product);
-  }, [product])
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000);
+  }, [])
   
+
   return (
-    <Container>
-      <Breadcrumbs />
-      <ProductContainer>
-        <img src={product.image?.fields.file.url} alt='product'></img>
-        <ProductData>
-          <h5>{product.brand}</h5>
-          <h3>{product.name.toLowerCase()}</h3>
-          {product.description && (
-            product.description.content.map(item => {
-             if (item.nodeType === 'paragraph') {
-               return (<><p>{item.content[0].value}</p><br/></>)
+    <Container isLoading={loading}>
+      {product && !loading ? (
+        <>
+          <Breadcrumbs />
+          <ProductContainer>
+            <img src={product.image?.fields.file.url} alt='product'></img>
+            <ProductData>
+              <h5>{product.brand}</h5>
+              <h3>{product.name.toLowerCase()}</h3>
+              {product.description && (
+                product.description.content.map(item => {
+                  if (item.nodeType === 'paragraph') {
+                    return (<><p>{item.content[0].value}</p><br /></>)
+                  }
+                  return (<><p>nothing</p><br /></>)
+                }))
               }
-              return (<><p>nothing</p><br/></>)
-            }))
-            }
-          {/* <p>{product.description}</p> */}
-        </ProductData>
-      </ProductContainer>
-      <ProductRow title='_artículos relacionados'/>
+              {/* <p>{product.description}</p> */}
+            </ProductData>
+          </ProductContainer>
+          <ProductRow title='_artículos relacionados' />
+        </>
+      ) : (
+        <Loader />
+      )}
     </Container>
   )
 }
 
 const Container = styled.div`
   padding: 60px ${spaces.horizontalPadding} 120px;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: ${props => props.isLoading ? "center" : "flex-start"};
+  justify-content: center;
   section {
     width: 100%;
     display: flex;
