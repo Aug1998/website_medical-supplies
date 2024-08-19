@@ -3,15 +3,15 @@ import React from 'react'
 import { colors, spaces } from '../style/theme'
 import Icon from './Icon'
 
-export default function ProductCard(props) {
+export default function ProductCard({ product }) {
   return (
-    <Container>
+    <Container onClick={() => window.open(`/product/${product.sys.id}`,"_self")}>
       <CardImageContainer>
-        <img src={props.img} alt=''/>
+        <img src={product.fields.image.fields.file.url} alt=''/>
       </CardImageContainer>
       <CardBody>
-        <p>{props.name}</p>
-        <a href={props.link}>
+        <p>{product.fields.name}</p>
+        <a href={product}>
           <>Ver más</>
           <Icon icon="arrowRight"/>
         </a>
@@ -23,15 +23,13 @@ export default function ProductCard(props) {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  flex-basis: 50%;
   width: 100%;
   max-width: 288px;
   cursor: pointer;
   transition: all 0.2s;
   &:hover {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;    transform: translateY(-4px);
-  }
-  @media only screen and (max-width: 800px) {
-    max-width: unset;
   }
 `
 

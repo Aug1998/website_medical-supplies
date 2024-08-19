@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
 const contentful = require("contentful");
 
@@ -70,12 +70,29 @@ export const useContentfulStore = () => {
       console.log(error)
     }
   }
-  
+
+  const getProductRowByBrandName = async (brandName) => {
+    try {
+      const products = await client.getEntries({
+        'fields.brand': brandName,
+        content_type: 'product',
+        limit: 4
+      })
+      .then((response) => {
+        return response.items
+      })
+      return products;
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return {
     products,
     uniquePartsOfBody,
     uniqueTypes,
     productsByType,
-    getSingleProduct
+    getSingleProduct,
+    getProductRowByBrandName
   }
 }

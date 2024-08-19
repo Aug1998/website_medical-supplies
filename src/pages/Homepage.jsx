@@ -19,8 +19,9 @@ import { scrollToElementById } from "../utils/utils";
 export default function Homepage() {
   const isMobile = window.innerWidth <= 800
   const [mobileNavIsOpen, setMobileNavIsOpen] = useState(false)
-  const { products } = useContentfulStore;
+  const { products, getProductsByBrandName } = useContentfulStore;
 
+  
   return (
     <>
       <Header page="home" handleHamburgerContactButton={() => setMobileNavIsOpen(true)} isMobile={isMobile}/>
@@ -42,8 +43,8 @@ export default function Homepage() {
         <Services />
         <Padding>
           <Title color={colors.primaryLight}>/ Productos</Title>
-          <ProductRow title="_permédica" />
-          <ProductRow title="_disame" />
+          <ProductRow type={"permedica"} title="_permédica" />
+          <ProductRow type={"disame"} title="_disame" />
         </Padding>
         {isMobile ? (
           <LogisticaMobile />

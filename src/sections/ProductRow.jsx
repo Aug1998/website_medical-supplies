@@ -1,30 +1,52 @@
 import styled from '@emotion/styled'
+import { useEffect, useState } from 'react'
 import Button from '../components/Button'
 import ProductCard from '../components/ProductCard'
 import { colors } from '../style/theme'
+import { useContentfulStore } from '../useContentfulStore'
 
-export default function ProductRow({ title }) {
+export default function ProductRow({ title, type }) {
+  const [items, setItems] = useState([])
+  const { getProductRowByBrandName } = useContentfulStore()
+
+  useEffect(() => {
+    if (getProductRowByBrandName) {
+      getProductRowByBrandName(type).then(response => {
+        setItems(response)
+      })
+    }
+  }, [type])
+
   return (
-    <Container id="productos">
-      <section>
-        <ProductsHelmet>
-          <h4>{title}</h4>
-          <Button type={"dark"}>Ver más</Button>
-        </ProductsHelmet>
-        <ProductsContainer>
-          <ProductCard name={"Producto 1"} img={'../img/product-sample.png'}/>
-          <ProductCard name={"Producto 2"} img={'../img/product-sample.png'}/>
-          <ProductCard name={"Producto 3"} img={'../img/product-sample.png'}/>
-          <ProductCard name={"Producto 4"} img={'../img/product-sample.png'}/>
-        </ProductsContainer>
-      </section>
-    </Container>
+    <>
+      {items.length ? (
+        <Container id="productos">
+          <section>
+            <ProductsHelmet>
+              <h4>{title}</h4>
+              <Button type={"dark"}>Ver más</Button>
+            </ProductsHelmet>
+            <ProductsContainer>
+              {items.map((item, index) => {
+                return (
+                  <ProductCard
+                    key={index}
+                    product={item}
+                  />
+                )
+              })}
+            </ProductsContainer>
+          </section>
+        </Container>
+      ) : <></>}
+    </>
   )
 }
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
@@ -65,8 +87,6 @@ const ProductsContainer = styled.div`
   width: 100%;
   gap: 22px;
   @media only screen and (max-width: 800px) {
-    flex-direction: column;
     align-items: center;
   }
 `
-
