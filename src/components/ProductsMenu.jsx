@@ -27,7 +27,7 @@ export default function ProductsMenu() {
               <h5>{type}</h5>
               {products?.filter(product => product.fields.type === type).map(product => {
                 return (
-                <button key={(index + 1) * Math.random()} onClick={() => window.open(`/product/${product.sys.id}`,"_self")}>{product.fields.name}</button>
+                <button key={(index + 1) * Math.random()} onClick={() => window.open(`/producto/${product.sys.id}`,"_self")}>{product.fields.name}</button>
               )
               })}
             </ProductTypeColumn>

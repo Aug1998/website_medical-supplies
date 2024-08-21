@@ -5,7 +5,7 @@ import Icon from './Icon'
 
 export default function ProductCard({ product }) {
   return (
-    <Container onClick={() => window.open(`/product/${product.sys.id}`,"_self")}>
+    <Container onClick={() => window.open(`/producto/${product.sys.id}`,"_self")}>
       <CardImageContainer>
         <img src={product.fields.image.fields.file.url} alt=''/>
       </CardImageContainer>
