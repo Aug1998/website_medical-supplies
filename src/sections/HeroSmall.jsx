@@ -1,20 +1,15 @@
 import styled from '@emotion/styled'
 import React from 'react'
-import Button from '../components/Button'
-import { colors, elements, spaces } from '../style/theme'
+import { elements, spaces } from '../style/theme'
 
-export default function HeroSmall() {
+export default function HeroSmall({ title }) {
   return (
     <>
       <Container>
         <Overlay />
-        <HeroContent>
-          <img src="./img/permedica.png" alt="" />
-          <MainTitle>
-            _Conocé la calidad y excelencia de nuestros insumos médicos. 
-          </MainTitle>
-          <Button>Conocenos</Button>
-        </HeroContent>
+          <Title>
+            _{title}
+          </Title>
       </Container>
     </>
   )
@@ -31,19 +26,6 @@ const Overlay = styled.div`
   background-color: rgba(76, 88, 97, 0.45);
 `
 
-const HeroContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  img {
-    width: 122px;
-    filter: grayscale(1) brightness(100);
-  }
-  @media only screen and (max-width: 800px) {
-    padding: 0 ${spaces.horizontalPaddingMobile};
-  }
-`
-
 const Container = styled.div`
   position: relative;
   display: flex;
@@ -52,14 +34,14 @@ const Container = styled.div`
   justify-content: center;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 40vh;
   background-color:  rgba(76, 88, 97, 0.7);
   background-image: url(./img/hero-bg.jpeg);
   background-size: cover;
   background-position-y: 69%;
   background-blend-mode: luminosity;
   gap: 70px;
-  padding: 70px ${spaces.horizontalPadding} 0;
+  padding: 120px ${spaces.horizontalPadding} 0;
   @media only screen and (max-width: 800px) {
     padding: 80px 10px;
     svg {
@@ -69,7 +51,7 @@ const Container = styled.div`
   }
 `
 
-const MainTitle = styled.h2`
+const Title = styled.h2`
   font-family: "Poppins", "Nunito", sans-serif;
   color: ${elements.HeroTitle};
   text-align: left;
@@ -78,11 +60,6 @@ const MainTitle = styled.h2`
   line-height: 48px;
   letter-spacing: 1.2px;
   margin: 38px 0 80px;
-  span {
-    font-family: "StretchPro", "Nunito", sans-serif;
-    background-color: ${colors.secondary};
-    padding: 0px 10px;
-  }
   @media only screen and (max-width: 800px) {
     font-size: 33px;
     line-height: 44px;

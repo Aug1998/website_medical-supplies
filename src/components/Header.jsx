@@ -31,10 +31,10 @@ const Header = (props) => {
               </a>
             )}
             <ControlledNavItem page={props.page}>
-              <a onClick={() => window.open(`/products`,"_self")} href="#">Productos</a>
+              <a onClick={() => window.open(`/productos`,"_self")} href="#">Productos</a>
               <ProductsMenu onClick={() => {}}/>
             </ControlledNavItem>
-            <ContactButton type={props.page === "home" ? 'light' : 'dark'} page={props.page} onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>
+            <ContactButton type={["home", "all_products"].includes(props.page) ? 'light' : 'dark'} page={props.page} onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>
               Contacto
             </ContactButton>
           </Nav>
@@ -58,11 +58,11 @@ const HeaderInner = styled.div`
   padding: 0 ${spaces.horizontalPadding};
   z-index: 99;
   ${props => 
-    props.page === "home" ? "background-color: #2b343b59;" : 
+    ["home", "all_products"].includes(props.page) ? 
+      "background-color: #2b343b59;" : 
     props.page === "product" ? `
-    background-color: white;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    `  : ""
+      background-color: white;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;`  : ""
   }
   backdrop-filter: blur(4px);
   * {
@@ -90,14 +90,14 @@ const Nav = styled.div`
     text-decoration: none;
     color: ${elements.headerFont};
     ${props => 
-      props.page === "home" ? "color: white;" : 
+      ["home", "all_products"].includes(props.page) ? "color: white;" : 
       props.page === "product" ? `color: ${colors.primary};`  : ""
     }
     padding: 0 22px;
     transition: 0.3s;
     border-bottom: 4px solid transparent;
     &:hover {
-      border-color: ${props => props.page === 'home' ? 'white' : colors.primary};
+      border-color: ${props => ["home", "all_products"].includes(props.page) ? 'white' : colors.primary};
       & > div{
         display: flex;
       }
@@ -112,7 +112,7 @@ const Logo = styled.img`
   cursor: pointer;
   height: 43px;
   ${props => 
-    props.page === "home" ? "filter: grayscale(1) brightness(100);" : ""
+    ["home", "all_products"].includes(props.page) ? "filter: grayscale(1) brightness(100);" : ""
   }
 `
 
@@ -166,12 +166,12 @@ const ContactButton = styled.button`
       letter-spacing: 2px;
       font-weight: 500;
       text-decoration: none;
-      border-bottom: 4px solid ${props => props.page === 'product' ? colors.primary : 'transparent'};
+      border-bottom: 4px solid ${props => props.page === 'product' ? colors.primary : props.page === 'all_products' ? 'white' : 'transparent'};
       &:hover {
-        border-color: ${props => props.page === 'home' ? 'white' : colors.primary};
+        border-color: ${props => ["home", "all_products"].includes(props.page) ? 'white' : colors.primary};
       }
       ${props => 
-        props.page === "home" ? "color: white;" : 
+        ["home", "all_products"].includes(props.page) ? "color: white;" : 
         props.page === "product" ? `color: ${colors.primary};` : ""
       }
     }
