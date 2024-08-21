@@ -23,7 +23,6 @@ export default function ProductCard({ product }) {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 23%;
   max-width: 288px;
   cursor: pointer;
   transition: all 0.2s;

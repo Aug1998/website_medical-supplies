@@ -1,19 +1,45 @@
 import styled from '@emotion/styled'
-import Button from '../components/Button'
+import { useEffect, useState } from 'react'
 import ProductCard from '../components/ProductCard'
 import { colors, spaces } from '../style/theme'
+import { useContentfulStore } from '../useContentfulStore'
 
 export default function ProductsPerCategory({ products }) {
+  const [selectedCategory, setSelectedCategory] = useState()
+  const [items, setItems] = useState([])
+  const [categories, setCategories] = useState([])
+  const { getProductRowByBrandName } = useContentfulStore()
+
+  useEffect(() => {
+    if (getProductRowByBrandName) {
+      getProductRowByBrandName(selectedCategory).then(response => {
+        setItems(response)
+        const categoriesList = [...new Set(response.map(product => product.fields.brand))];
+        setCategories(categoriesList)
+        setSelectedCategory(categoriesList[0])
+      })
+    }
+  }, [])
+
   return (
     <>
       {products ? (
         <Container id="productos">
           <section>
             <ProductsHelmet>
-              <Button type={"dark"}>Ver más</Button>
+              {categories && categories.map((item, index) => (
+                <HelmetItem 
+                  key={index}
+                  isSelected={selectedCategory === item} 
+                  type={"dark"}
+                  onClick={() => setSelectedCategory(item)}
+                >
+                  _{item}
+                </HelmetItem>
+              ))}
             </ProductsHelmet>
             <ProductsContainer>
-              {products.map((item, index) => {
+              {products.filter(item => item.fields.brand === selectedCategory).map((item, index) => {
                 return (
                   <ProductCard
                     key={index}
@@ -44,7 +70,7 @@ const Container = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    gap: 50px;
   }
   @media only screen and (max-width: 800px) {
     padding: 0;
@@ -52,30 +78,31 @@ const Container = styled.div`
   }
 `
 
-const ProductsHelmet = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  h4 {
-    font-weight: 500;
-    font-size: 28px;
-    color: ${colors.black};
-    line-height: 33px;
-    width: fit-content;
-    overflow: hidden; 
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-`
-
 const ProductsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  display: grid;
   width: 100%;
-  gap: 2vw calc((100vw - ${spaces.horizontalPadding} * 2) / 100 * 2);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
   @media only screen and (max-width: 800px) {
     align-items: center;
   }
+`
+
+const ProductsHelmet = styled.ul`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+`
+
+const HelmetItem = styled.li`
+  list-style: none;
+  cursor: pointer;
+  border-bottom: 3px solid ${props => props.isSelected ? colors.primaryLight : "transparent"};
+  padding: 15px 33px;
+  font-weight: 500;
+  font-size: 24px;
+  color: ${props => props.isSelected ? colors.primaryLight : colors.black};
+  line-height: 33px;
 `

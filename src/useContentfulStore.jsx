@@ -71,12 +71,12 @@ export const useContentfulStore = () => {
     }
   }
 
-  const getProductRowByBrandName = async (brandName) => {
+  const getProductRowByBrandName = async (brandName, amount) => {
     try {
       const products = await client.getEntries({
         'fields.brand': brandName,
         content_type: 'product',
-        limit: 4
+        limit: amount
       })
       .then((response) => {
         return response.items
