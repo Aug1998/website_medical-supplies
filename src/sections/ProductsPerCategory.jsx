@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import ProductCard from '../components/ProductCard'
 import { colors, spaces } from '../style/theme'
 import { useContentfulStore } from '../useContentfulStore'
@@ -9,14 +10,22 @@ export default function ProductsPerCategory({ products }) {
   const [items, setItems] = useState([])
   const [categories, setCategories] = useState([])
   const { getProductRowByBrandName } = useContentfulStore()
+  const { search } = useLocation();
 
   useEffect(() => {
+    const searchParams = new URLSearchParams(search)
+    const selectedBrandFromParams = searchParams.get('marca')
+
     if (getProductRowByBrandName) {
       getProductRowByBrandName(selectedCategory).then(response => {
         setItems(response)
         const categoriesList = [...new Set(response.map(product => product.fields.brand))];
         setCategories(categoriesList)
-        setSelectedCategory(categoriesList[0])
+        if (selectedBrandFromParams) {
+          setSelectedCategory(selectedBrandFromParams)
+        } else {
+          setSelectedCategory(categoriesList[0])
+        }
       })
     }
   }, [])

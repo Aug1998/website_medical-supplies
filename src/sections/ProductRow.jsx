@@ -11,7 +11,7 @@ export default function ProductRow({ title, type }) {
 
   useEffect(() => {
     if (getProductRowByBrandName) {
-      getProductRowByBrandName(type).then(response => {
+      getProductRowByBrandName(type, 4).then(response => {
         setItems(response)
       })
     }
@@ -24,7 +24,9 @@ export default function ProductRow({ title, type }) {
           <section>
             <ProductsHelmet>
               <h4>{title}</h4>
-              <Button type={"dark"}>Ver más</Button>
+              <Button onClick={() => {
+                window.open(`/productos/${type ? `?marca=${type}` : ""}`, "_self")
+              }} type={"dark"}>Ver más</Button>
             </ProductsHelmet>
             <ProductsContainer>
               {items.map((item, index) => {
@@ -83,9 +85,10 @@ const ProductsHelmet = styled.div`
 `
 
 const ProductsContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 100%;
-  gap: 22px;
+  gap: 20px;
   @media only screen and (max-width: 800px) {
     align-items: center;
   }
