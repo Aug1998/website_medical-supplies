@@ -90,6 +90,7 @@ const ProductsContainer = styled.div`
   width: 100%;
   gap: 20px;
   @media only screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
     align-items: center;
   }
 `

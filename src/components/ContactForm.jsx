@@ -1,7 +1,7 @@
 import emailjs from '@emailjs/browser';
 import styled from '@emotion/styled';
 import { useRef, useState } from 'react';
-import { colors } from '../style/theme';
+import { colors, spaces } from '../style/theme';
 import Button from './Button';
 import Title from './Title';
 
@@ -205,7 +205,7 @@ export const FormContainer = styled.div`
   border-top: solid 3.5px ${colors.primaryLight};
   border-bottom: solid 3.5px ${colors.primaryLight};
   @media only screen and (max-width: 800px) {
-    padding: 40px 10px;
+    padding: 40px ${spaces.horizontalPaddingMobile};
   }
 `
 
@@ -224,9 +224,19 @@ export const Form = styled.form`
   height: 100%;
   gap: 30px 70px;
   @media only screen and (max-width: 800px) {
+    gap: 30px 0px;
     width: 100%;
+    justify-items: end;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto max-content;
+    grid-template-areas: 
+    "name name"
+    "email email"
+    "number number"
+    "company company"
+    "message message"
+    ". button"
+    ;
   }
 `
 
@@ -307,6 +317,10 @@ export const FormMessage = styled.div`
     border-bottom: 1px solid ${props => props.isFocused ? colors.primaryLight : colors.gray};
     padding: 0px 6px 8px;
     color: ${colors.black};
+    @media only screen and (max-width: 800px) {
+      padding: 40px 6px 8px;
+      height: 180px!important;
+    }
   }
   @media only screen and (min-width: 801px) {
     grid-column: ${props => props.fullWidth ? "span 2" : ""};

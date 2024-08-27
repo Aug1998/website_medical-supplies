@@ -84,8 +84,12 @@ const Container = styled.div`
   @media only screen and (max-width: 800px) {
     padding: 0;
     margin-bottom: 90px;
+    gap: 20px;
+    section {
+      gap: 20px;
+    }
   }
-`
+  `
 
 const ProductsContainer = styled.div`
   display: grid;
@@ -94,6 +98,8 @@ const ProductsContainer = styled.div`
   gap: 20px;
   @media only screen and (max-width: 800px) {
     align-items: center;
+    padding: ${spaces.horizontalPaddingMobile};
+    grid-template-columns: 1fr;
   }
 `
 
@@ -103,6 +109,11 @@ const ProductsHelmet = styled.ul`
   align-items: center;
   width: 100%;
   gap: 20px;
+  @media only screen and (max-width: 800px) {
+    overflow-x: scroll;
+    padding: 30px 20px 0;
+    justify-content: flex-start;
+  }
 `
 
 const HelmetItem = styled.li`

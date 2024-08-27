@@ -36,14 +36,17 @@ const Container = styled.div`
   width: 100%;
   height: 40vh;
   background-color:  rgba(76, 88, 97, 0.7);
-  background-image: url(./img/hero-bg.jpeg);
+  background-image: url(../img/hero-bg.jpeg);
   background-size: cover;
   background-position-y: 69%;
   background-blend-mode: luminosity;
   gap: 70px;
   padding: 120px ${spaces.horizontalPadding} 0;
   @media only screen and (max-width: 800px) {
-    padding: 80px 10px;
+    padding: 80px ${spaces.horizontalPaddingMobile};
+    background-size: 160%;
+    background-position-y: 69%;
+    background-blend-mode: luminosity;
     svg {
       max-height: 300px;
       transform: translateX(20px);
@@ -63,6 +66,7 @@ const Title = styled.h2`
   @media only screen and (max-width: 800px) {
     font-size: 33px;
     line-height: 44px;
-    max-width: 17ch;
+    max-width: unset;
+    margin: 60px 0 0;
   }
 `

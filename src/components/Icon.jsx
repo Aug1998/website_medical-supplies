@@ -1,5 +1,5 @@
-import React from 'react'
 import styled from '@emotion/styled'
+import React from 'react'
 import { elements } from '../style/theme'
 
 export default function Icon({ icon, size, withBorder, link }) {
@@ -40,7 +40,7 @@ export default function Icon({ icon, size, withBorder, link }) {
   )
 }
 
-const IconContainer = styled.button`
+const IconContainer = styled.div`
   all: unset;
   display: flex;
   align-items: center;
