@@ -22,7 +22,7 @@ const Container = styled.div`
   gap: 8px;
   text-transform: uppercase;
   font-size: 15px;
-  line-height: 15px;
+  line-height: 16px;
   letter-spacing: 1.5px;
   color: ${colors.primaryLight};
   * {
@@ -37,5 +37,9 @@ const Container = styled.div`
   }
   p {
     font-weight: 700;
+  }
+  @media only screen and (max-width: 800px) {
+    margin-bottom: 26px;
+    flex-wrap: wrap;
   }
 `

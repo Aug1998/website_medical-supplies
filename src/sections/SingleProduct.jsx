@@ -58,6 +58,9 @@ const Container = styled.div`
     flex-direction: column;
     gap: 22px;
   }
+  @media only screen and (max-width: 800px) {
+    padding: 60px ${spaces.horizontalPaddingMobile} 120px;
+  }
 `
 
 const ProductContainer = styled.div`
@@ -68,6 +71,13 @@ const ProductContainer = styled.div`
   img {
     width: 50%;
     max-width: 500px;
+  }
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+    margin-bottom: 20px;
+    img {
+      width: 100%;
+    }
   }
   `
 
@@ -103,25 +113,17 @@ const ProductData = styled.div`
     font-size: 14px;
     line-height: 24px;
   }
-`
-
-const ProductsHelmet = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  h4 {
-    font-weight: 500;
-    font-size: 28px;
-    color: ${colors.black};
-    line-height: 33px;
-    width: 160px;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+    h5 {
+      font-size: 16px;
+    }
+    h3 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+    p {
+      font-size: 16px;
+    }
   }
 `
-
-const ProductsContainer = styled.div`
-  display: flex;
-  width: 100%;
-  gap: 22px;
-`
-

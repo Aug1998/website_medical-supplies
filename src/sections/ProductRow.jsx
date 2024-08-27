@@ -78,9 +78,9 @@ const ProductsHelmet = styled.div`
     color: ${colors.black};
     line-height: 33px;
     width: fit-content;
-    overflow: hidden; 
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    @media only screen and (max-width: 800px) {
+      max-width: 12ch;
+    }
   }
 `
 
