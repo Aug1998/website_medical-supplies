@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import Icon from "../components/Icon";
-import { elements, spaces } from '../style/theme';
+import { elements, insetShadow, spaces } from '../style/theme';
 
 export default function Footer() {
   return (
@@ -39,6 +39,7 @@ const FooterContainer = styled.div`
 `
 
 const FooterTop = styled.div`
+  box-shadow: ${insetShadow};
   background-color: ${elements.footerTopBackground};
   padding: 0 ${spaces.horizontalPadding};
   height: 184px;
@@ -59,6 +60,8 @@ const FooterTop = styled.div`
 `
 
 const Footerbottom = styled.div`
+
+ 
   background-color: ${elements.footerBottomBackground};
   display: flex;
   align-items: center;

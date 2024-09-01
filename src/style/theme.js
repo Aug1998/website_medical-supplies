@@ -50,3 +50,8 @@ export const spaces = {
   horizontalPadding: "15vw",
   horizontalPaddingMobile: "4vw",
 }
+
+export const insetShadow = `
+    inset 0px 20px 15px -8px rgba(7,7,10,0.3), 
+    inset 0px -20px 15px -8px rgba(7,7,10,0.3)
+    `

@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
 import styled from '@emotion/styled'
-import { colors, spaces } from '../style/theme'
+import { useEffect, useRef, useState } from 'react'
+import { insetShadow, spaces } from '../style/theme'
 
 
 export default function Logistica() {
@@ -35,6 +35,7 @@ export default function Logistica() {
 }
 
 const Container = styled.div`
+  box-shadow: ${insetShadow};
   height: 70vh;
   width: 100%;
   display: flex;
@@ -44,6 +45,16 @@ const Container = styled.div`
   position: relative;
   padding: 0 ${spaces.horizontalPadding};
   overflow: hidden;
+  &::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    box-shadow: ${insetShadow};
+    z-index: 99;
+  }
   @media only screen and (max-width: 800px) {
     margin-top: 0px;
     margin-bottom: 60px;
@@ -51,7 +62,6 @@ const Container = styled.div`
   }
   img {
     position: absolute;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     top: 0%;
     left: 0%;
     width: 100vw;
