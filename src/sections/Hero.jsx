@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import React from 'react'
 import Button from '../components/Button'
 import { colors, elements, spaces } from '../style/theme'
+import { scrollToElementById } from '../utils/utils'
 
 export default function Hero() {
   return (
@@ -13,7 +14,7 @@ export default function Hero() {
           <MainTitle>
             _Conocé la calidad y excelencia de nuestros insumos médicos. 
           </MainTitle>
-          <Button>Conocenos</Button>
+          <Button onClick={(e) => {e.preventDefault(); scrollToElementById("caracteristicas")}}>Conocenos</Button>
         </HeroContent>
       </Container>
     </>
