@@ -1,45 +1,57 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import styled from '@emotion/styled';
+import { useState } from 'react';
 import { colors, elements, spaces } from '../style/theme';
 import { scrollToElementById } from '../utils/utils';
+import MobileNav from './MobileNav';
 import ProductsMenu from './ProductsMenu';
 
 const Header = (props) => {
   const { isMobile } = props;
+  const [mobileNavIsOpen, setMobileNavIsOpen] = useState(false)
 
   return (
     <>
-      <>
-        <HeaderInner page={props.page}>
-          <Logo page={props.page} src='../img/logo.png' onClick={() => window.open(`/`,"_self")}/>
-          {isMobile && (
-            <MobileNavButton onClick={() => props.handleHamburgerButton()}>
-              <svg width="36px" height="36px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 6.00092H21M3 12.0009H21M3 18.0009H21" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </MobileNavButton>
+      <HeaderInner page={props.page}>
+        <Logo page={props.page} src='../img/logo.png' onClick={() => window.open(`/`,"_self")}/>
+        {isMobile && (
+          <MobileNavButton onClick={() => setMobileNavIsOpen(true)}>
+            <svg width="36px" height="36px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6.00092H21M3 12.0009H21M3 18.0009H21" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </MobileNavButton>
+        )}
+        <Nav page={props.page}>
+          {props.page === 'home' && (
+            <a onClick={(e) => {e.preventDefault(); scrollToElementById("caracteristicas")}} href="#">
+              Qué hacemos
+            </a>
           )}
-          <Nav page={props.page}>
-            {props.page === 'home' && (
-              <a onClick={(e) => {e.preventDefault(); scrollToElementById("caracteristicas")}} href="#">
-                Qué hacemos
-              </a>
-            )}
-            {props.page !== 'home' && (
-              <a onClick={() => window.open(`/`,"_self")} href="#">
-                Inicio
-              </a>
-            )}
-            <ControlledNavItem page={props.page}>
-              <a onClick={() => window.open(`/productos`,"_self")} href="#">Productos</a>
-              <ProductsMenu onClick={() => {}}/>
-            </ControlledNavItem>
-            <ContactButton type={["home", "all_products"].includes(props.page) ? 'light' : 'dark'} page={props.page} onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>
-              Contacto
-            </ContactButton>
-          </Nav>
-        </HeaderInner>
-      </>
+          {props.page !== 'home' && (
+            <a onClick={() => window.open(`/`,"_self")} href="#">
+              Inicio
+            </a>
+          )}
+          <ControlledNavItem page={props.page}>
+            <a onClick={() => window.open(`/productos`,"_self")} href="#">Productos</a>
+            <ProductsMenu onClick={() => {}}/>
+          </ControlledNavItem>
+          <ContactButton type={["home", "all_products"].includes(props.page) ? 'light' : 'dark'} page={props.page} onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>
+            Contacto
+          </ContactButton>
+        </Nav>
+      </HeaderInner>
+      {isMobile && (
+        <MobileNav isOpen={mobileNavIsOpen} handleClick={() => setMobileNavIsOpen(false)}>
+          <a onClick={() => window.open(`/`,"_self")} href="#">
+            Inicio
+          </a>
+          <a onClick={() => window.open(`/productos`,"_self")} href="#">Productos</a>
+          <ContactButton type={["home", "all_products"].includes(props.page) ? 'light' : 'dark'} page={props.page} onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>
+            Contacto
+          </ContactButton>
+        </MobileNav>
+      )}
     </>
   )
 }
@@ -145,11 +157,16 @@ const ContactButton = styled.button`
     background-color: ${colors.primaryLight};
     border-color: ${colors.primaryLight};
   }
-  `
+  @media only screen and (max-width: 800px) {
+    margin: 0;
+    font-size: 18px;
+  }
+`
 
   const ControlledNavItem = styled.div`
     cursor: pointer;
     height: 100%;
+    max-height: 90px;
     text-transform: uppercase;
     position: relative;
     display: flex;
