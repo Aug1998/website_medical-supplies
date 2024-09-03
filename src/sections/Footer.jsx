@@ -18,8 +18,8 @@ export default function Footer() {
           <p><span>_contacto</span> administracion@medicalsuppliessrl.com</p>
         </ContactData>
         <SocialMedia>
-          <Icon link={"https://www.instagram.com/wqrldpass"} icon={"instagram"} size={"22px"}></Icon>
-          <Icon link={"https://www.linkedin.com/company/wqrld-pass/"} icon={"linkedin"} size={"22px"}></Icon>
+          <Icon link={"https://www.instagram.com/medicalsuppliessrl"} icon={"instagram"} size={"22px"}></Icon>
+          <Icon link={"https://www.linkedin.com/company/medicalsuppliessrl/"} icon={"linkedin"} size={"22px"}></Icon>
         </SocialMedia>
       </FooterTop>
       <Footerbottom>

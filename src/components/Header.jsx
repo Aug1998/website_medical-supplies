@@ -36,7 +36,11 @@ const Header = (props) => {
             <a onClick={() => window.open(`/productos`,"_self")} href="#">Productos</a>
             <ProductsMenu onClick={() => {}}/>
           </ControlledNavItem>
-          <ContactButton type={["home", "all_products"].includes(props.page) ? 'light' : 'dark'} page={props.page} onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>
+          <ContactButton 
+            type={["home", "all_products"].includes(props.page) ? 'light' : 'dark'} 
+            page={props.page} 
+            onClick={() => window.open("https://wa.me/5493413561218",'_blank')}
+          >
             Contacto
           </ContactButton>
         </Nav>
@@ -47,7 +51,11 @@ const Header = (props) => {
             Inicio
           </a>
           <a onClick={() => window.open(`/productos`,"_self")} href="#">Productos</a>
-          <ContactButton type={["home", "all_products"].includes(props.page) ? 'light' : 'dark'} page={props.page} onClick={() => window.open("https://wa.me/5493412805006",'_blank')}>
+          <ContactButton 
+            type={["home", "all_products"].includes(props.page) ? 'light' : 'dark'} 
+            page={props.page} 
+            onClick={() => window.open("https://wa.me/5493413561218",'_blank')}
+          >
             Contacto
           </ContactButton>
         </MobileNav>
