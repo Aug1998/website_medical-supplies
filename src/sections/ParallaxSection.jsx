@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { useEffect, useRef, useState } from 'react'
 import { colors, spaces } from '../style/theme'
 
-export default function LogisticaMobile() {
+export default function ParallaxSection() {
   const containerRef = useRef(null)
   const [scrollY, setScrollY] = useState(0)
   const [floatingImages, setFloatingImages] = useState([])
@@ -36,7 +36,7 @@ export default function LogisticaMobile() {
         id="logistica"
         ref={containerRef}
       >
-        <img src="../img/logistica.jpeg" data-speed="4" alt="" />
+        <img src="../img/logistica.jpeg" data-speed="-6" alt="" />
         <Content>
           <Title>_logística en salud</Title>
         </Content>
@@ -46,7 +46,7 @@ export default function LogisticaMobile() {
 }
 
 const Container = styled.div`
-  min-height: 90vh;
+  min-height: 70vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -54,11 +54,11 @@ const Container = styled.div`
   justify-content: center;
   position: relative;
   background-color: ${colors.white};
-  background-size: cover;
   background-position-y: -90px;
   padding: 0 ${spaces.horizontalPadding};
   overflow: hidden;
   @media only screen and (max-width: 800px) {
+    min-height: 90vh;
     margin-top: 0px;
     padding: 10px;
   }
@@ -67,9 +67,14 @@ const Container = styled.div`
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   }
   img:nth-of-type(1){
-    top: -160px;
-    right: -550px;
-    width: 340%;
+    top: -480px;
+    right: -100px;
+    width: 120%;
+    @media only screen and (max-width: 800px) {
+      top: 0px;
+      right: -550px;
+      width: 360%;
+    }
   }
 `
 
@@ -80,7 +85,6 @@ const Content = styled.div`
   align-items: center;
   justify-content: center;
   gap: 40px;
-  transform: translateY(30px);
   @media only screen and (max-width: 800px) {
     gap: 34px;
   }

@@ -6,8 +6,7 @@ import Title from "../components/Title";
 import Contact from "../sections/Contact";
 import Footer from "../sections/Footer";
 import Hero from "../sections/Hero";
-import Logistica from "../sections/Logistica";
-import LogisticaMobile from "../sections/LogisticaMobile";
+import ParallaxSection from "../sections/ParallaxSection";
 import ProductRow from "../sections/ProductRow";
 import Services from "../sections/Services";
 import { Padding } from "../style/GlobalCss";
@@ -46,11 +45,7 @@ export default function Homepage() {
           <ProductRow type={"permedica"} title="_permédica" />
           <ProductRow type={"disame"} title="_disame" />
         </Padding>
-        {isMobile ? (
-          <LogisticaMobile />
-      ) : (
-          <Logistica />
-        )}
+        <ParallaxSection />
         <Contact />
       </PageContent>
       <Footer />

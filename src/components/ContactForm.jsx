@@ -231,6 +231,7 @@ export const Form = styled.form`
     "number number"
     "company company"
     "message message"
+    ". captcha"
     ". button"
     ;
   }
