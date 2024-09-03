@@ -114,7 +114,7 @@ const ProductsHelmet = styled.ul`
     padding: 30px 20px 0;
     justify-content: flex-start;
   }
-`
+  `
 
 const HelmetItem = styled.li`
   list-style: none;
@@ -125,4 +125,8 @@ const HelmetItem = styled.li`
   font-size: 24px;
   color: ${props => props.isSelected ? colors.primaryLight : colors.black};
   line-height: 33px;
+  @media only screen and (max-width: 800px) {
+    padding: 10px 33px;
+    font-size: 20px;
+  }
 `

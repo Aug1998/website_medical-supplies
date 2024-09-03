@@ -79,16 +79,17 @@ const HeaderInner = styled.div`
   z-index: 99;
   ${props => 
     ["home", "all_products"].includes(props.page) ? 
-      "background-color: #2b343b59;" : 
+    "background-color: #2b343b59;" : 
     props.page === "product" ? `
-      background-color: white;
-      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;`  : ""
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;`  : ""
   }
   backdrop-filter: blur(4px);
   * {
     font-family: 'Open Sans'!important;
   }
   @media only screen and (max-width: 800px) {
+    height: 80px;
     padding: 0 6vw;
   }
 `

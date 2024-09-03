@@ -173,7 +173,7 @@ export default function ContactForm() {
         </FormMessage>
 
         {/* Captcha */}
-        <CaptchaContainer className="g-recaptcha" data-sitekey="6LcHvzUqAAAAAMlFqlyCE9iO27i--K9PW3HOASac" />
+        {/* <CaptchaContainer className="g-recaptcha" data-sitekey="6LcHvzUqAAAAAMlFqlyCE9iO27i--K9PW3HOASac" /> */}
 
         {/* Dummy Submit */}
         <Button type="dark" className="dummy_submit" onClick={() => handleSubmit()}>Enviar</Button>
@@ -224,14 +224,13 @@ export const Form = styled.form`
     width: 100%;
     justify-items: end;
     display: grid;
-    grid-template-columns: auto max-content;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: 
     "name name"
     "email email"
     "number number"
     "company company"
     "message message"
-    ". captcha"
     ". button"
     ;
   }
@@ -273,6 +272,7 @@ export const FormItem = styled.div`
     border: none;
     outline: none;
     background-color: transparent;
+    border-radius: 0px;
     border-bottom: 1px solid ${props => props.isFocused ? colors.primaryLight : colors.gray};
     padding: 0 6px 0 100px;
     color: ${colors.black};

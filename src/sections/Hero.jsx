@@ -85,8 +85,8 @@ const MainTitle = styled.h2`
     padding: 0px 10px;
   }
   @media only screen and (max-width: 800px) {
-    font-size: 33px;
-    line-height: 44px;
+    font-size: 30px;
+    line-height: 42px;
     max-width: 17ch;
   }
 `
