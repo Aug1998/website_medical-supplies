@@ -10,10 +10,10 @@ export default function ContactForm() {
   const [focusedInput, setFocusedInput] = useState("")
 
   const [userInput, setUserInput] = useState({
-    name: "",
+    form_name: "",
+    form_company: "",
     form_number: "",
-    email: "",
-    number: "",
+    form_email: "",
     message: "",
   })
 
@@ -41,7 +41,7 @@ export default function ContactForm() {
 
   const handleSubmit = async (e) => {
     if (validateForm()) {
-      // sendEmail();
+      sendEmail();
     } else {
       return;
     }
@@ -66,11 +66,6 @@ export default function ContactForm() {
     // Nombre
     if (userInput.form_name.length < 3) {
       console.log("name error");
-      return false;
-    }
-    // Apellido
-    if (userInput.form_lastName.length < 3) {
-      console.log("lastName error");
       return false;
     }
     // Mail
@@ -178,7 +173,7 @@ export default function ContactForm() {
         </FormMessage>
 
         {/* Captcha */}
-        <CaptchaContainer className="g-recaptcha" data-sitekey="6Lf8gyUnAAAAADA60Ofp-_RsQkSGUpZ8DcJquyk6" />
+        <CaptchaContainer className="g-recaptcha" data-sitekey="6LcHvzUqAAAAAMlFqlyCE9iO27i--K9PW3HOASac" />
 
         {/* Dummy Submit */}
         <Button type="dark" className="dummy_submit" onClick={() => handleSubmit()}>Enviar</Button>
@@ -188,6 +183,7 @@ export default function ContactForm() {
 }
 
 const CaptchaContainer = styled.div`
+  grid-area: captcha;
    div{
       overflow: hidden;
    }
@@ -218,7 +214,7 @@ export const Form = styled.form`
   "email message message"
   "number message message"
   "company message message"
-  ". . button"
+  "captcha . button"
   ;
   width: 100%;
   height: 100%;
