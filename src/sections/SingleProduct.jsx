@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Breadcrumbs from '../components/Breadcrumbs';
 import Loader from '../components/Loader';
 import { colors, spaces } from '../style/theme';
+import { htmlStringFromRichText } from '../useContentfulStore.utils';
 import ProductRow from './ProductRow';
 
 export default function SingleProduct({ product }) {
@@ -14,7 +15,6 @@ export default function SingleProduct({ product }) {
     }, 2000);
   }, [])
   
-
   return (
     <Container isLoading={loading}>
       {product && !loading ? (
@@ -25,15 +25,7 @@ export default function SingleProduct({ product }) {
             <ProductData>
               <h5>{product.brand}</h5>
               <h3>{product.name.toLowerCase()}</h3>
-              {product.description && (
-                product.description.content.map(item => {
-                  if (item.nodeType === 'paragraph') {
-                    return (<><p>{item.content[0].value}</p><br /></>)
-                  }
-                  return (<><p>nothing</p><br /></>)
-                }))
-              }
-              {/* <p>{product.description}</p> */}
+              <div dangerouslySetInnerHTML={{__html: htmlStringFromRichText(product.description)}} />
             </ProductData>
           </ProductContainer>
           <ProductRow title='_artículos relacionados' />
@@ -104,7 +96,7 @@ const ProductData = styled.div`
     font-weight: 500;
     font-size: 40px;
     line-height: 48px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
   p {
     color: #6B6B6B;
@@ -112,6 +104,11 @@ const ProductData = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
+  }
+  div{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
   @media only screen and (max-width: 800px) {
     width: 100%;
