@@ -25,7 +25,9 @@ export default function SingleProduct({ product }) {
             <ProductData>
               <h5>{product.brand}</h5>
               <h3>{product.name.toLowerCase()}</h3>
-              <div dangerouslySetInnerHTML={{__html: htmlStringFromRichText(product.description)}} />
+              {product.description && (
+                <div dangerouslySetInnerHTML={{__html: htmlStringFromRichText(product.description)}} />
+              )}
             </ProductData>
           </ProductContainer>
           <ProductRow title='_artículos relacionados' />
