@@ -1,9 +1,9 @@
 import styled from '@emotion/styled/macro';
 import { useEffect, useState } from 'react';
+import { htmlStringFromRichText } from '../api/useContentfulStore.utils';
 import Breadcrumbs from '../components/Breadcrumbs';
 import Loader from '../components/Loader';
 import { colors, spaces } from '../style/theme';
-import { htmlStringFromRichText } from '../useContentfulStore.utils';
 import ProductRow from './ProductRow';
 
 export default function SingleProduct({ product }) {

@@ -1,11 +1,11 @@
 import styled from '@emotion/styled/macro';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useContentfulStore } from '../api/useContentfulStore';
 import Header from '../components/Header';
 import Contact from '../sections/Contact';
 import Footer from '../sections/Footer';
 import SingleProduct from '../sections/SingleProduct';
-import { useContentfulStore } from '../useContentfulStore';
 
 export default function ProductPage() {
   let { productId } = useParams();

@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
 import { useEffect, useState } from 'react'
+import { useContentfulStore } from '../api/useContentfulStore'
 import Button from '../components/Button'
 import ProductCard from '../components/ProductCard'
 import { colors } from '../style/theme'
-import { useContentfulStore } from '../useContentfulStore'
 
 export default function ProductRow({ title, type }) {
   const [items, setItems] = useState([])

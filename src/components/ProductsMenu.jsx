@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { useEffect, useState } from 'react'
+import { useContentfulStore } from '../api/useContentfulStore'
 import { colors } from '../style/theme'
-import { useContentfulStore } from '../useContentfulStore'
 import Icon from './Icon'
 
 export default function ProductsMenu() {

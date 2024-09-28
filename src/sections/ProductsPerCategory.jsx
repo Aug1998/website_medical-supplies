@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useContentfulStore } from '../api/useContentfulStore'
 import ProductCard from '../components/ProductCard'
 import { colors, spaces } from '../style/theme'
-import { useContentfulStore } from '../useContentfulStore'
 
 export default function ProductsPerCategory({ products }) {
   const [selectedCategory, setSelectedCategory] = useState()

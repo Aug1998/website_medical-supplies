@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useState } from "react";
+import { useContentfulStore } from "../api/useContentfulStore";
 import Header from "../components/Header";
 import Title from "../components/Title";
 import Contact from "../sections/Contact";
@@ -11,7 +12,6 @@ import ProductRow from "../sections/ProductRow";
 import Services from "../sections/Services";
 import { Padding } from "../style/GlobalCss";
 import { colors, elements } from "../style/theme";
-import { useContentfulStore } from "../useContentfulStore";
 import { scrollToElementById } from "../utils/utils";
 
 
